@@ -1,12 +1,13 @@
 class_name Unit
 extends Node2D
 
-@onready var tile_map = $"../TileMap"
+@onready var tile_map = get_node("/root/world/TileMap")
 
 var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
 var target_position: Vector2
 var is_moving: bool
+var SPEED = 100
 
 func _ready() -> void:
 	astar_grid = AStarGrid2D.new()
@@ -34,3 +35,21 @@ func _input(event) -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
+
+var has_moved = false
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		GameManager.select_unit(self)
+
+func try_move_to(target_cell: Vector2i) -> void:
+	var id_path = astar_grid.get_id_path(
+		tile_map.local_to_map(global_position),
+		target_cell
+	)
+
+	if id_path.is_empty():
+		return
+
+	current_id_path = id_path
+	is_moving = false  # флаг сброса перед началом движения
