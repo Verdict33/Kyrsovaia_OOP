@@ -32,24 +32,31 @@ func _ready() -> void:
 func _input(event) -> void:
 	pass
 
-
 func _physics_process(delta: float) -> void:
 	pass
-
-var has_moved = false
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
 		GameManager.select_unit(self)
 
 func try_move_to(target_cell: Vector2i) -> void:
-	var id_path = astar_grid.get_id_path(
-		tile_map.local_to_map(global_position),
-		target_cell
-	)
-
+	var start_cell = tile_map.local_to_map(global_position)
+	
+	var occupied = GameManager.get_occupied_cells(self)
+	
+	for cell in occupied:
+		if astar_grid.is_in_boundsv(cell):
+			astar_grid.set_point_solid(cell, true)
+	
+	var id_path = astar_grid.get_id_path(start_cell, target_cell)
+	
+	for cell in occupied:
+		if astar_grid.is_in_boundsv(cell):
+			astar_grid.set_point_solid(cell, false)
+	
 	if id_path.is_empty():
+		print("Путь не найден")
 		return
-
+	
 	current_id_path = id_path
-	is_moving = false  # флаг сброса перед началом движения
+	is_moving = false

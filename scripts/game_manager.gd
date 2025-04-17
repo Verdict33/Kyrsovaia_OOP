@@ -12,6 +12,24 @@ func _ready():
 		if child is Unit:
 			player_units.append(child)
 
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+
+		# Попробовать выбрать юнита
+		var clicked_unit = get_unit_at_position(mouse_pos)
+		if clicked_unit and not clicked_unit.is_moving:
+			selected_unit = clicked_unit
+			print("Выбран юнит:", selected_unit.name)
+			return
+
+		# Если юнит выбран — попытка переместить его
+		if selected_unit:
+			var tile = tile_map.local_to_map(mouse_pos)
+			selected_unit.try_move_to(tile)
+
+
 func get_unit_at_position(pos: Vector2) -> Unit:
 	for unit in player_units:
 		var sprite = unit.get_node("Sprite2D")
@@ -26,23 +44,14 @@ func get_unit_at_position(pos: Vector2) -> Unit:
 
 
 func select_unit(unit: Unit) -> void:
-	if unit.has_moved:
+	if unit.is_moving:
 		return
 	selected_unit = unit
-	print("Выбран юнит:", unit.name)
 
-func _unhandled_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		var mouse_pos = get_global_mouse_position()
-
-		# Попробовать выбрать юнита
-		var clicked_unit = get_unit_at_position(mouse_pos)
-		if clicked_unit and not clicked_unit.has_moved:
-			selected_unit = clicked_unit
-			print("Выбран юнит:", selected_unit.name)
-			return
-
-		# Если юнит выбран — попытка переместить его
-		if selected_unit:
-			var tile = tile_map.local_to_map(mouse_pos)
-			selected_unit.try_move_to(tile)
+func get_occupied_cells(exclude: Unit) -> Array[Vector2i]:
+	var occupied: Array[Vector2i] = []
+	for unit in player_units:
+		if unit != exclude:
+			var cell = tile_map.local_to_map(unit.global_position)
+			occupied.append(cell)
+	return occupied
