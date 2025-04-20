@@ -6,8 +6,10 @@ extends Node2D
 var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
 var target_position: Vector2
-var is_moving: bool
+var has_moved: bool = false
 var SPEED = 100
+var is_moving: bool
+var max_move_cells: int = 5
 
 func _ready() -> void:
 	astar_grid = AStarGrid2D.new()
@@ -40,23 +42,36 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		GameManager.select_unit(self)
 
 func try_move_to(target_cell: Vector2i) -> void:
+	if has_moved:
+		print("Юнит уже ходил")
+		return
+
 	var start_cell = tile_map.local_to_map(global_position)
-	
 	var occupied = GameManager.get_occupied_cells(self)
-	
+
+	# Отмечаем занятые клетки как непроходимые
 	for cell in occupied:
 		if astar_grid.is_in_boundsv(cell):
 			astar_grid.set_point_solid(cell, true)
-	
+
 	var id_path = astar_grid.get_id_path(start_cell, target_cell)
-	
+
+	# Снимаем отметки
 	for cell in occupied:
 		if astar_grid.is_in_boundsv(cell):
 			astar_grid.set_point_solid(cell, false)
-	
+
+	# Проверка доступности пути
 	if id_path.is_empty():
 		print("Путь не найден")
 		return
-	
+
+	# Ограничение по длине хода (не учитываем начальную точку)
+	var move_length = id_path.size() - 1
+	if move_length > max_move_cells:
+		print("Слишком далеко — максимум:", max_move_cells, " шагов")
+		return
+
+	# Допустимый путь — начинаем движение
 	current_id_path = id_path
 	is_moving = false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://7ihshqgqempo" path="res://texture/tilemap_packed.png" id="1_txmk2"]
 [ext_resource type="PackedScene" uid="uid://dnk6v6lauhqk4" path="res://scene/player.tscn" id="1_w4qq1"]
-[ext_resource type="PackedScene" uid="uid://cy6ugpwxd5hey" path="res://scene/enemy.tscn" id="3_w4qq1"]
+[ext_resource type="PackedScene" uid="uid://bqnt2ur1bmoml" path="res://scene/enemy.tscn" id="3_w4qq1"]
 [ext_resource type="Script" uid="uid://dij5iwcjikvfs" path="res://scripts/game_manager.gd" id="4_m5mgf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5mgf"]
@@ -168,15 +168,17 @@ script = ExtResource("4_m5mgf")
 position = Vector2(132, 141)
 zoom = Vector2(0.475, 0.475)
 
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemys" instance=ExtResource("3_w4qq1")]
+position = Vector2(40, 40)
+
 [node name="Units" type="Node2D" parent="."]
 
-[node name="Player" parent="Units" instance=ExtResource("1_w4qq1")]
+[node name="Player1" parent="Units" instance=ExtResource("1_w4qq1")]
 
 [node name="Player2" parent="Units" instance=ExtResource("1_w4qq1")]
 position = Vector2(71, 8)
 
 [node name="Player3" parent="Units" instance=ExtResource("1_w4qq1")]
 position = Vector2(40, 56)
-
-[node name="Enemy" parent="." instance=ExtResource("3_w4qq1")]
-position = Vector2(40, 40)

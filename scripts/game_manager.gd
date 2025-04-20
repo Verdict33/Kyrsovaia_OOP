@@ -5,6 +5,8 @@ extends Node2D
 
 var selected_unit: Unit = null
 var player_units: Array[Unit] = []
+enum TurnState { PLAYER_TURN, ENEMY_TURN }
+var turn_state = TurnState.PLAYER_TURN
 
 func _ready():
 	# Собираем всех юнитов игрока
@@ -14,12 +16,15 @@ func _ready():
 
 
 func _unhandled_input(event):
+	if turn_state != TurnState.PLAYER_TURN:
+		return
+	
 	if event is InputEventMouseButton and event.pressed:
 		var mouse_pos = get_global_mouse_position()
 
 		# Попробовать выбрать юнита
 		var clicked_unit = get_unit_at_position(mouse_pos)
-		if clicked_unit and not clicked_unit.is_moving:
+		if clicked_unit and not clicked_unit.has_moved:
 			selected_unit = clicked_unit
 			print("Выбран юнит:", selected_unit.name)
 			return
@@ -55,3 +60,22 @@ func get_occupied_cells(exclude: Unit) -> Array[Vector2i]:
 			var cell = tile_map.local_to_map(unit.global_position)
 			occupied.append(cell)
 	return occupied
+
+func end_player_turn():
+	for unit in player_units:
+		unit.has_moved = false
+	selected_unit = null
+	turn_state = TurnState.ENEMY_TURN
+	print("Ход врага")
+	
+	# Здесь можно вызвать AI-действия
+	#enemy_turn()
+	
+	turn_state = TurnState.PLAYER_TURN
+	print("Ход игрока")
+
+func all_units_moved() -> bool:
+	for unit in player_units:
+		if not unit.has_moved:
+			return false
+	return true
