@@ -8,6 +8,9 @@ var player_units: Array[Unit] = []
 enum TurnState { PLAYER_TURN, ENEMY_TURN }
 var turn_state = TurnState.PLAYER_TURN
 
+const HIGHLIGHT_TILE_ID = 1
+const HIGHLIGHT_LAYER = 1
+
 func _ready():
 	# Собираем всех юнитов игрока
 	for child in units_container.get_children():
@@ -52,25 +55,36 @@ func select_unit(unit: Unit) -> void:
 	if unit.is_moving:
 		return
 	selected_unit = unit
+	show_movement_range(unit)
 
 func get_occupied_cells(exclude: Unit) -> Array[Vector2i]:
 	var occupied: Array[Vector2i] = []
+	
+	# Проверка своих юнитов
 	for unit in player_units:
 		if unit != exclude:
 			var cell = tile_map.local_to_map(unit.global_position)
 			occupied.append(cell)
+	
+	# Проверка вражеских юнитов
+	var enemy_units = get_node("/root/world/Enemys").get_children()
+	for enemy in enemy_units:
+		if enemy != exclude:
+			var cell = tile_map.local_to_map(enemy.global_position)
+			occupied.append(cell)
+	
 	return occupied
 
+
 func end_player_turn():
+	clear_highlight()
 	for unit in player_units:
 		unit.has_moved = false
 	selected_unit = null
 	turn_state = TurnState.ENEMY_TURN
 	print("Ход врага")
-	
-	# Здесь можно вызвать AI-действия
-	#enemy_turn()
-	
+
+	await get_tree().create_timer(1.0).timeout
 	turn_state = TurnState.PLAYER_TURN
 	print("Ход игрока")
 
@@ -79,3 +93,12 @@ func all_units_moved() -> bool:
 		if not unit.has_moved:
 			return false
 	return true
+
+func show_movement_range(unit: Unit) -> void:
+	clear_highlight()
+	var reachable = unit.get_reachable_cells()
+	for cell in reachable:
+		tile_map.set_cell(1, cell, 1)
+
+func clear_highlight() -> void:
+	tile_map.clear_layer(1)

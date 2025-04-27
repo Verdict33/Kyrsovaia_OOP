@@ -16,8 +16,11 @@ texture = ExtResource("1_txmk2")
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
+7:0/0/custom_data_1 = true
 8:0/0 = 0
+8:0/0/custom_data_1 = true
 9:0/0 = 0
+9:0/0/custom_data_1 = true
 10:0/0 = 0
 11:0/0 = 0
 12:0/0 = 0
@@ -34,8 +37,11 @@ texture = ExtResource("1_txmk2")
 5:1/0 = 0
 6:1/0 = 0
 7:1/0 = 0
+7:1/0/custom_data_1 = true
 8:1/0 = 0
+8:1/0/custom_data_1 = true
 9:1/0 = 0
+9:1/0/custom_data_1 = true
 10:1/0 = 0
 11:1/0 = 0
 12:1/0 = 0
@@ -52,8 +58,11 @@ texture = ExtResource("1_txmk2")
 5:2/0 = 0
 6:2/0 = 0
 7:2/0 = 0
+7:2/0/custom_data_1 = true
 8:2/0 = 0
+8:2/0/custom_data_1 = true
 9:2/0 = 0
+9:2/0/custom_data_1 = true
 10:2/0 = 0
 11:2/0 = 0
 12:2/0 = 0
@@ -152,6 +161,8 @@ texture = ExtResource("1_txmk2")
 [sub_resource type="TileSet" id="TileSet_emkrx"]
 custom_data_layer_0/name = "walking"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "light"
+custom_data_layer_1/type = 1
 sources/2 = SubResource("TileSetAtlasSource_m5mgf")
 
 [node name="world" type="Node2D"]
@@ -178,7 +189,7 @@ position = Vector2(40, 40)
 [node name="Player1" parent="Units" instance=ExtResource("1_w4qq1")]
 
 [node name="Player2" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(71, 8)
+position = Vector2(72, 8)
 
 [node name="Player3" parent="Units" instance=ExtResource("1_w4qq1")]
 position = Vector2(40, 56)

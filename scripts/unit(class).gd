@@ -75,3 +75,29 @@ func try_move_to(target_cell: Vector2i) -> void:
 	# Допустимый путь — начинаем движение
 	current_id_path = id_path
 	is_moving = false
+
+func get_reachable_cells() -> Array[Vector2i]:
+	var start_cell = tile_map.local_to_map(global_position)
+	var reachable: Array[Vector2i] = []
+
+	var occupied = GameManager.get_occupied_cells(self)
+	for cell in occupied:
+		if astar_grid.is_in_boundsv(cell):
+			astar_grid.set_point_solid(cell, true)
+
+	var region = astar_grid.region
+	for x in range(region.position.x, region.position.x + region.size.x):
+		for y in range(region.position.y, region.position.y + region.size.y):
+			var target_cell = Vector2i(x, y)
+			if not astar_grid.is_point_solid(target_cell):
+				var path = astar_grid.get_id_path(start_cell, target_cell)
+				if not path.is_empty() and path.size() - 1 <= max_move_cells:
+					reachable.append(target_cell)
+
+
+	# Убрать временную блокировку
+	for cell in occupied:
+		if astar_grid.is_in_boundsv(cell):
+			astar_grid.set_point_solid(cell, false)
+
+	return reachable
