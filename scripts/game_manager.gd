@@ -8,8 +8,9 @@ var player_units: Array[Unit] = []
 enum TurnState { PLAYER_TURN, ENEMY_TURN }
 var turn_state = TurnState.PLAYER_TURN
 
-const HIGHLIGHT_TILE_ID = 1
-const HIGHLIGHT_LAYER = 1
+const HIGHLIGHT_LAYER = 1  # Слой для подсветки
+const HIGHLIGHT_TILE_ID = 1  # ID тайла подсветки
+
 
 func _ready():
 	# Собираем всех юнитов игрока
@@ -25,12 +26,13 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		var mouse_pos = get_global_mouse_position()
 
-		# Попробовать выбрать юнита
 		var clicked_unit = get_unit_at_position(mouse_pos)
 		if clicked_unit and not clicked_unit.has_moved:
 			selected_unit = clicked_unit
 			print("Выбран юнит:", selected_unit.name)
+			show_movement_range(selected_unit)  # <--- ЭТО ДОБАВИТЬ
 			return
+
 
 		# Если юнит выбран — попытка переместить его
 		if selected_unit:
@@ -55,7 +57,6 @@ func select_unit(unit: Unit) -> void:
 	if unit.is_moving:
 		return
 	selected_unit = unit
-	show_movement_range(unit)
 
 func get_occupied_cells(exclude: Unit) -> Array[Vector2i]:
 	var occupied: Array[Vector2i] = []
@@ -97,8 +98,13 @@ func all_units_moved() -> bool:
 func show_movement_range(unit: Unit) -> void:
 	clear_highlight()
 	var reachable = unit.get_reachable_cells()
+	print("Клетки для подсветки:", reachable)
+
+	var tile_set_id = 2
+	var atlas_coords = Vector2i(9, 6)
+
 	for cell in reachable:
-		tile_map.set_cell(1, cell, 1)
+		tile_map.set_cell(HIGHLIGHT_LAYER, cell, tile_set_id, atlas_coords)
 
 func clear_highlight() -> void:
-	tile_map.clear_layer(1)
+	tile_map.clear_layer(HIGHLIGHT_LAYER)

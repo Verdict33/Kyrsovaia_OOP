@@ -31,6 +31,9 @@ func _physics_process(delta: float) -> void:
 		if current_id_path.is_empty():
 			is_moving = false
 			has_moved = true  # Отметить, что юнит сходил
+			
+			GameManager.clear_highlight()
+			
 			# Проверка на завершение хода игрока
 			if GameManager.all_units_moved():
 				GameManager.end_player_turn()
