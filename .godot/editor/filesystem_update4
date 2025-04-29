@@ -1,6 +1,5 @@
 res://scene/world.tscn
-res://scripts/game_manager.gd
 res://scene/unit(class).tscn
 res://scene/player.tscn
 res://scene/enemy.tscn
-res://scripts/player.gd
+res://scripts/game_manager.gd

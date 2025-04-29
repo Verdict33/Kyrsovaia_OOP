@@ -43,7 +43,6 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 
 func try_move_to(target_cell: Vector2i) -> void:
 	if has_moved:
-		print("Юнит уже ходил")
 		return
 
 	var start_cell = tile_map.local_to_map(global_position)
@@ -63,13 +62,11 @@ func try_move_to(target_cell: Vector2i) -> void:
 
 	# Проверка доступности пути
 	if id_path.is_empty():
-		print("Путь не найден")
 		return
 
 	# Ограничение по длине хода (не учитываем начальную точку)
 	var move_length = id_path.size() - 1
 	if move_length > max_move_cells:
-		print("Слишком далеко — максимум:", max_move_cells, " шагов")
 		return
 
 	# Допустимый путь — начинаем движение
@@ -100,3 +97,24 @@ func get_reachable_cells() -> Array[Vector2i]:
 			astar_grid.set_point_solid(cell, false)
 	
 	return reachable
+
+var max_health := 1
+var health := 1
+var attack_power := 3
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		die()
+
+func die() -> void:
+	queue_free()
+	
+func attack(target: Unit) -> void:
+	if target:
+		target.take_damage(attack_power)
+
+func can_attack(target: Unit) -> bool:
+	var self_cell = tile_map.local_to_map(global_position)
+	var target_cell = tile_map.local_to_map(target.global_position)
+	return self_cell.distance_to(target_cell) <= 1 

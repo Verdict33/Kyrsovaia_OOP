@@ -37,7 +37,24 @@ func _unhandled_input(event):
 		# Если юнит выбран — попытка переместить его
 		if selected_unit:
 			var tile = tile_map.local_to_map(mouse_pos)
+			
+			# Проверка — есть ли враг в этой клетке
+			var enemy_units = get_node("/root/world/Enemys").get_children()
+			for enemy in enemy_units:
+				var enemy_cell = tile_map.local_to_map(enemy.global_position)
+				
+				if enemy_cell == tile and selected_unit.can_attack(enemy):
+					selected_unit.attack(enemy)
+					selected_unit.has_moved = true
+					clear_highlight()
+					selected_unit = null
+					if all_units_moved():
+						end_player_turn()
+					return
+
+			# Если врага нет — попробовать двигаться
 			selected_unit.try_move_to(tile)
+
 
 
 func get_unit_at_position(pos: Vector2) -> Unit:
@@ -85,9 +102,20 @@ func end_player_turn():
 	turn_state = TurnState.ENEMY_TURN
 	print("Ход врага")
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout  # Небольшая пауза перед началом хода врага
+
+	# Вызов make_turn у каждого врага
+	var enemy_units = get_node("/root/world/Enemys").get_children()
+	for enemy in enemy_units:
+		if enemy is Unit:
+			enemy.make_turn()
+
+	# Ждем пока все враги завершат движение
+	await wait_until_enemies_done()
+
 	turn_state = TurnState.PLAYER_TURN
 	print("Ход игрока")
+
 
 func all_units_moved() -> bool:
 	for unit in player_units:
@@ -98,7 +126,6 @@ func all_units_moved() -> bool:
 func show_movement_range(unit: Unit) -> void:
 	clear_highlight()
 	var reachable = unit.get_reachable_cells()
-	print("Клетки для подсветки:", reachable)
 
 	var tile_set_id = 2
 	var atlas_coords = Vector2i(9, 6)
@@ -108,3 +135,14 @@ func show_movement_range(unit: Unit) -> void:
 
 func clear_highlight() -> void:
 	tile_map.clear_layer(HIGHLIGHT_LAYER)
+
+func wait_until_enemies_done():
+	while true:
+		var enemies_moving = false
+		for enemy in get_node("/root/world/Enemys").get_children():
+			if enemy is Unit and enemy.is_moving:
+				enemies_moving = true
+				break
+		if not enemies_moving:
+			break
+		await get_tree().process_frame

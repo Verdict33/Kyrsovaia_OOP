@@ -39,3 +39,5 @@ func _physics_process(delta: float) -> void:
 				GameManager.end_player_turn()
 		else:
 			target_position = tile_map.map_to_local(current_id_path.front())
+			
+	
