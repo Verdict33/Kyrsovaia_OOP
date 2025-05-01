@@ -111,21 +111,20 @@ func end_player_turn():
 	process_enemy_turn()
 
 
-# Новая функция для обработки хода врага и перехода обратно к игроку
 func process_enemy_turn():
-	# Используем await здесь, чтобы GameManager дождался завершения хода врагов
 	await get_tree().create_timer(0.5).timeout
 
 	var enemy_units = get_node("/root/world/Enemys").get_children()
 	for enemy in enemy_units:
 		if enemy is Unit and is_instance_valid(enemy):
-			# Не нужно сбрасывать has_moved здесь, враг должен сам управлять этим флагом *в течение* своего хода
-			await enemy.make_turn() # Дожидаемся завершения хода каждого врага
+			await enemy.make_turn()
+		else:
+			pass
 	
-	var all_units = player_units + enemy_units # Собираем всех юнитов
+	var all_units = player_units + get_node("/root/world/Enemys").get_children()
 	for unit in all_units:
-		if unit is Unit and is_instance_valid(unit):
-			unit.has_moved = false # Сбрасываем флаг для следующего раунда
+		if is_instance_valid(unit) and unit is Unit:
+			unit.has_moved = false
 	
 	turn_state = TurnState.PLAYER_TURN
 	print("Ход игрока")
