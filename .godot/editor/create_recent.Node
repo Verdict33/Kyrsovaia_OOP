@@ -1,8 +1,11 @@
-TileMap
-Camera2D
-Sprite2D
-CharacterBody2D
-CollisionShape2D
-ColorRect
+Label
 Node2D
+Area2D
+CollisionShape2D
+Sprite2D
+Camera2D
+RayCast2D
+TileMap
+CharacterBody2D
+ColorRect
 AnimatedSprite2D

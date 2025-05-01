@@ -1,9 +1,16 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1744656974
-::res://scene/::1744608781
-world.tscn::PackedScene/PackedScene::304400341632599133::1744608781::0::1::::<><><>0<>0<><>::uid://7ihshqgqempo::::res://texture/tilemap_packed.png<>uid://cwp3jfdm2345r::::res://scripts/character.gd<>uid://cic326fkvljoq::::res://texture/Character 1.png
-::res://scripts/::1744484265
-character.gd::GDScript/GDScript::6349678009510021457::1744484265::0::1::::<>Node2D<><>0<>0<><>::
+::res://::1746083098
+icon.svg::CompressedTexture2D/CompressedTexture2D::5159980979347064829::1743523174::1744657646::1::::<><><>0<>0<>dc79b2064be2f06421161b61f0a0ed2b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://scene/::1745951563
+enemy.tscn::PackedScene::3537482009914214859::1745951563::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cpbs1b0h4tcl8::::res://scripts/enemy.gd<>uid://cic326fkvljoq::::res://texture/Character 1.png
+player.tscn::PackedScene::8094282169605808873::1745951563::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://cic326fkvljoq::::res://texture/Character 1.png
+unit(class).tscn::PackedScene::4975838302583762223::1745951563::0::1::::<><><>0<>0<><>::uid://dtov4hemupu2q::::res://scripts/unit(class).gd
+world.tscn::PackedScene::304400341632599133::1745951563::0::1::::<><><>0<>0<><>::uid://7ihshqgqempo::::res://texture/tilemap_packed.png<>uid://dnk6v6lauhqk4::::res://scene/player.tscn<>uid://bqnt2ur1bmoml::::res://scene/enemy.tscn<>uid://dij5iwcjikvfs::::res://scripts/game_manager.gd
+::res://scripts/::1745951563
+enemy.gd::GDScript::5828877827723083047::1745951563::0::1::::<>Unit<><>0<>0<><>::
+game_manager.gd::GDScript::7741189155127672320::1745951563::0::1::::<>Node2D<><>0<>0<><>::
+player.gd::GDScript/GDScript::6349678009510021457::1745927208::0::1::::<>Unit<><>0<>0<><>::
+unit(class).gd::GDScript/GDScript::8523078588045327150::1745927816::0::1::::Unit<>Node2D<><>0<>0<><>::
 ::res://texture/::1744452829
 Character 1.png::CompressedTexture2D/CompressedTexture2D::5340230800662211000::1731664365::1744220565::1::::<><><>0<>0<>fe307c6487e5c3ea68e2908d04968bd6<>res://.godot/imported/Character 1.png-567c22adfa83442cbb8b63bde912c0b2.ctex::
 spr_grass_tileset.png::CompressedTexture2D/CompressedTexture2D::318373031214203970::1744362324::1744452829::1::::<><><>0<>0<>9f876bdc66283bcc499ecddc6c7921f1<>res://.godot/imported/spr_grass_tileset.png-6949a8b43bc22444f2b809be771b7f0f.ctex::
