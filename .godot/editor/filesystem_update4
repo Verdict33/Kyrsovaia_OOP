@@ -2,4 +2,3 @@ res://scene/world.tscn
 res://scene/unit(class).tscn
 res://scene/player.tscn
 res://scene/enemy.tscn
-res://scripts/game_manager.gd
