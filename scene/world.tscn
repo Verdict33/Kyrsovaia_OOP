@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://elpoudo6sar2"]
+[gd_scene load_steps=8 format=3 uid="uid://elpoudo6sar2"]
 
 [ext_resource type="Texture2D" uid="uid://7ihshqgqempo" path="res://texture/tilemap_packed.png" id="1_txmk2"]
 [ext_resource type="PackedScene" uid="uid://dnk6v6lauhqk4" path="res://scene/player.tscn" id="1_w4qq1"]
 [ext_resource type="PackedScene" uid="uid://bqnt2ur1bmoml" path="res://scene/enemy.tscn" id="3_w4qq1"]
 [ext_resource type="Script" uid="uid://dij5iwcjikvfs" path="res://scripts/game_manager.gd" id="4_m5mgf"]
+[ext_resource type="PackedScene" uid="uid://cpyeto8qsmerk" path="res://scene/trap.tscn" id="5_emkrx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5mgf"]
 texture = ExtResource("1_txmk2")
@@ -184,10 +185,15 @@ position = Vector2(120, 136)
 [node name="Units" type="Node2D" parent="."]
 
 [node name="Player1" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(152, 72)
+position = Vector2(40, 88)
 
 [node name="Player2" parent="Units" instance=ExtResource("1_w4qq1")]
 position = Vector2(232, 104)
 
 [node name="Player3" parent="Units" instance=ExtResource("1_w4qq1")]
 position = Vector2(72, 40)
+
+[node name="Traps" type="Node" parent="."]
+
+[node name="Trap" parent="Traps" instance=ExtResource("5_emkrx")]
+position = Vector2(64, 80)

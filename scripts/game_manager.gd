@@ -102,13 +102,18 @@ func get_occupied_cells(exclude: Unit) -> Array[Vector2i]:
 
 func end_player_turn():
 	clear_highlight()
-	# Не нужно сбрасывать флаги игроков здесь, сделаем это перед началом их хода
+	
+	# Проверяем ловушки для каждого юнита игрока
+	for unit in player_units:
+		if unit is Unit and is_instance_valid(unit):
+			unit.check_for_traps()
+
 	selected_unit = null # Снимаем выделение
 	turn_state = TurnState.ENEMY_TURN
 	print("Ход врага")
-	
-	# Запускаем обработку хода врагов (лучше вынести в отдельную функцию для ясности)
+
 	process_enemy_turn()
+
 
 
 func process_enemy_turn():

@@ -121,3 +121,9 @@ func can_attack(target: Unit) -> bool:
 	var self_cell = tile_map.local_to_map(global_position)
 	var target_cell = tile_map.local_to_map(target.global_position)
 	return self_cell.distance_to(target_cell) <= 1 
+
+func check_for_traps():
+	var traps = get_node("/root/world/Traps").get_children()
+	for trap in traps:
+		if trap is Trap:
+			trap.check_trigger(self)

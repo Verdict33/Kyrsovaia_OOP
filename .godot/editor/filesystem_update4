@@ -1,7 +1,8 @@
+res://scene/trap.tscn
 res://scene/world.tscn
 res://scene/unit(class).tscn
 res://scene/player.tscn
 res://scene/enemy.tscn
-res://scripts/player.gd
-res://scripts/enemy.gd
+res://scripts/trap.gd
 res://scripts/game_manager.gd
+res://scripts/unit(class).gd
