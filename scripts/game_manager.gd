@@ -59,6 +59,9 @@ func _unhandled_input(event):
 
 func get_unit_at_position(pos: Vector2) -> Unit:
 	for unit in player_units:
+		if not is_instance_valid(unit):
+			continue  # Юнит уже удалён — пропускаем
+
 		var sprite = unit.get_node("Sprite2D")
 		if sprite:
 			var rect = Rect2(
@@ -70,52 +73,62 @@ func get_unit_at_position(pos: Vector2) -> Unit:
 	return null
 
 
+
 func select_unit(unit: Unit) -> void:
 	if unit.is_moving:
 		return
 	selected_unit = unit
 
 func get_occupied_cells(exclude: Unit) -> Array[Vector2i]:
+	player_units = player_units.filter(func(u): return is_instance_valid(u))
+
 	var occupied: Array[Vector2i] = []
-	
+
 	# Проверка своих юнитов
 	for unit in player_units:
-		if unit != exclude:
+		if unit != exclude and is_instance_valid(unit):
 			var cell = tile_map.local_to_map(unit.global_position)
 			occupied.append(cell)
-	
+
 	# Проверка вражеских юнитов
 	var enemy_units = get_node("/root/world/Enemys").get_children()
 	for enemy in enemy_units:
-		if enemy != exclude:
+		if enemy != exclude and is_instance_valid(enemy):
 			var cell = tile_map.local_to_map(enemy.global_position)
 			occupied.append(cell)
-	
+
 	return occupied
 
 
 func end_player_turn():
 	clear_highlight()
-	for unit in player_units:
-		unit.has_moved = false
-	selected_unit = null
+	# Не нужно сбрасывать флаги игроков здесь, сделаем это перед началом их хода
+	selected_unit = null # Снимаем выделение
 	turn_state = TurnState.ENEMY_TURN
 	print("Ход врага")
+	
+	# Запускаем обработку хода врагов (лучше вынести в отдельную функцию для ясности)
+	process_enemy_turn()
 
-	await get_tree().create_timer(0.5).timeout  # Небольшая пауза перед началом хода врага
 
-	# Вызов make_turn у каждого врага
+# Новая функция для обработки хода врага и перехода обратно к игроку
+func process_enemy_turn():
+	# Используем await здесь, чтобы GameManager дождался завершения хода врагов
+	await get_tree().create_timer(0.5).timeout
+
 	var enemy_units = get_node("/root/world/Enemys").get_children()
 	for enemy in enemy_units:
-		if enemy is Unit:
-			enemy.make_turn()
-
-	# Ждем пока все враги завершат движение
-	await wait_until_enemies_done()
-
+		if enemy is Unit and is_instance_valid(enemy):
+			# Не нужно сбрасывать has_moved здесь, враг должен сам управлять этим флагом *в течение* своего хода
+			await enemy.make_turn() # Дожидаемся завершения хода каждого врага
+	
+	var all_units = player_units + enemy_units # Собираем всех юнитов
+	for unit in all_units:
+		if unit is Unit and is_instance_valid(unit):
+			unit.has_moved = false # Сбрасываем флаг для следующего раунда
+	
 	turn_state = TurnState.PLAYER_TURN
 	print("Ход игрока")
-
 
 func all_units_moved() -> bool:
 	for unit in player_units:
@@ -146,3 +159,6 @@ func wait_until_enemies_done():
 		if not enemies_moving:
 			break
 		await get_tree().process_frame
+
+func remove_unit(unit: Unit) -> void:
+	player_units.erase(unit)

@@ -179,7 +179,7 @@ zoom = Vector2(0.475, 0.475)
 position = Vector2(40, 40)
 
 [node name="Enemy2" parent="Enemys" instance=ExtResource("3_w4qq1")]
-position = Vector2(40, 72)
+position = Vector2(120, 136)
 
 [node name="Units" type="Node2D" parent="."]
 
@@ -190,4 +190,4 @@ position = Vector2(152, 72)
 position = Vector2(232, 104)
 
 [node name="Player3" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(56, 40)
+position = Vector2(72, 40)
