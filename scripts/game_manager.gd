@@ -144,8 +144,8 @@ func show_movement_range(unit: Unit) -> void:
 	clear_highlight()
 	var reachable = unit.get_reachable_cells()
 
-	var tile_set_id = 2
-	var atlas_coords = Vector2i(9, 6)
+	var tile_set_id = 0
+	var atlas_coords = Vector2i(2, 23)
 
 	for cell in reachable:
 		tile_map.set_cell(HIGHLIGHT_LAYER, cell, tile_set_id, atlas_coords)

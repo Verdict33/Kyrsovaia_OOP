@@ -1,19 +1,30 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1746252618
+::res://::1746279959
 icon.svg::CompressedTexture2D/CompressedTexture2D::5159980979347064829::1746084130::1746084609::1::::<><><>0<>0<>dc79b2064be2f06421161b61f0a0ed2b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://scene/::1746121191
-enemy.tscn::PackedScene::3537482009914214859::1746121191::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cpbs1b0h4tcl8::::res://scripts/enemy.gd<>uid://cic326fkvljoq::::res://texture/Character 1.png
-player.tscn::PackedScene::8094282169605808873::1746121191::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://cic326fkvljoq::::res://texture/Character 1.png
-trap.tscn::PackedScene::5875496673166326812::1746121191::0::1::::<><><>0<>0<><>::uid://7ihshqgqempo::::res://texture/tilemap_packed.png<>uid://3j4h1e3qc1lu::::res://scripts/trap.gd
-unit(class).tscn::PackedScene::4975838302583762223::1746121191::0::1::::<><><>0<>0<><>::uid://dtov4hemupu2q::::res://scripts/unit(class).gd
-world.tscn::PackedScene::304400341632599133::1746121191::0::1::::<><><>0<>0<><>::uid://7ihshqgqempo::::res://texture/tilemap_packed.png<>uid://dnk6v6lauhqk4::::res://scene/player.tscn<>uid://bqnt2ur1bmoml::::res://scene/enemy.tscn<>uid://dij5iwcjikvfs::::res://scripts/game_manager.gd<>uid://cpyeto8qsmerk::::res://scene/trap.tscn
-::res://scripts/::1746121160
-enemy.gd::GDScript/GDScript::5828877827723083047::1746116660::0::1::::<>Unit<><>0<>0<><>::
-game_manager.gd::GDScript::7741189155127672320::1746121087::0::1::::<>Node2D<><>0<>0<><>::
-player.gd::GDScript/GDScript::6349678009510021457::1746111916::0::1::::<>Unit<><>0<>0<><>::
-trap.gd::GDScript::1985641688079010178::1746121160::0::1::::Trap<>Node2D<><>0<>0<><>::
-unit(class).gd::GDScript::8523078588045327150::1746120837::0::1::::Unit<>Node2D<><>0<>0<><>::
-::res://texture/::1744452829
+::res://scene/::1746273146
+enemy.tscn::PackedScene::3537482009914214859::1746273146::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cpbs1b0h4tcl8::::res://scripts/enemy.gd<>uid://b8cmlbfnedkgt::::res://texture/Zombie_Big.png
+player.tscn::PackedScene::8094282169605808873::1746273146::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://c48um5lhsxiul::::res://texture/Берсерк.png
+trap.tscn::PackedScene::5875496673166326812::1746273146::0::1::::<><><>0<>0<><>::uid://7ihshqgqempo::::res://texture/tilemap_packed.png<>uid://3j4h1e3qc1lu::::res://scripts/trap.gd
+unit(class).tscn::PackedScene::4975838302583762223::1746273146::0::1::::<><><>0<>0<><>::uid://dtov4hemupu2q::::res://scripts/unit(class).gd
+world.tscn::PackedScene::304400341632599133::1746273146::0::1::::<><><>0<>0<><>::uid://7ihshqgqempo::::res://texture/tilemap_packed.png<>uid://dnk6v6lauhqk4::::res://scene/player.tscn<>uid://bqnt2ur1bmoml::::res://scene/enemy.tscn<>uid://dij5iwcjikvfs::::res://scripts/game_manager.gd<>uid://cpyeto8qsmerk::::res://scene/trap.tscn
+::res://scripts/::1746257603
+enemy.gd::GDScript/GDScript::5828877827723083047::1746257482::0::1::::<>Unit<><>0<>0<><>::
+game_manager.gd::GDScript/GDScript::7741189155127672320::1746121087::0::1::::<>Node2D<><>0<>0<><>::
+player.gd::GDScript/GDScript::6349678009510021457::1746257482::0::1::::<>Unit<><>0<>0<><>::
+trap.gd::GDScript/GDScript::1985641688079010178::1746257603::0::1::::Trap<>Node2D<><>0<>0<><>::
+unit(class).gd::GDScript/GDScript::8523078588045327150::1746120837::0::1::::Unit<>Node2D<><>0<>0<><>::
+::res://texture/::1746280115
 Character 1.png::CompressedTexture2D/CompressedTexture2D::5340230800662211000::1731664365::1744220565::1::::<><><>0<>0<>fe307c6487e5c3ea68e2908d04968bd6<>res://.godot/imported/Character 1.png-567c22adfa83442cbb8b63bde912c0b2.ctex::
 spr_grass_tileset.png::CompressedTexture2D/CompressedTexture2D::318373031214203970::1744362324::1744452829::1::::<><><>0<>0<>9f876bdc66283bcc499ecddc6c7921f1<>res://.godot/imported/spr_grass_tileset.png-6949a8b43bc22444f2b809be771b7f0f.ctex::
 tilemap_packed.png::CompressedTexture2D/CompressedTexture2D::2263015574363655068::1635774517::1744362660::1::::<><><>0<>0<>aec473e444850d6873e3be6b25ad8ea4<>res://.godot/imported/tilemap_packed.png-6866ccd6565eb7450fe553feb0ea432a.ctex::
+Zombie_Big.png::CompressedTexture2D/CompressedTexture2D::4707529587745948479::1746272825::1746272905::1::::<><><>0<>0<>abe14c8df699570c892e65a75713a3f1<>res://.godot/imported/Zombie_Big.png-8e9f98a0b3fb51d52684a8d0495a04f1.ctex::
+Арбалетчик.png::CompressedTexture2D/CompressedTexture2D::6161399757457989545::1746271991::1746272040::1::::<><><>0<>0<>20255232b5a9d45942aaae3ca017e3ab<>res://.godot/imported/Арбалетчик.png-8bba338a5a0a4d03c816f17a188547d6.ctex::
+Архимаг.png::CompressedTexture2D/CompressedTexture2D::4537592358639026237::1745910753::1746272040::1::::<><><>0<>0<>686cef9d97e5627d057f2524cf6772a2<>res://.godot/imported/Архимаг.png-f76bebda5316e6ac44db93d951e72aac.ctex::
+Ассасин.png::CompressedTexture2D/CompressedTexture2D::6887656989860533476::1746271999::1746272077::1::::<><><>0<>0<>c194ea465fd8b53aaced6ad7bd941a23<>res://.godot/imported/Ассасин.png-04a3f4a394d287068bb002125c47f754.ctex::
+Берсерк.png::CompressedTexture2D/CompressedTexture2D::6877679661191670731::1746271990::1746272040::1::::<><><>0<>0<>131d29d5b36cae13d0c77f1701f995a2<>res://.godot/imported/Берсерк.png-4bfc33c3bbf12756701c052a41d9e5df.ctex::
+Жрец.png::CompressedTexture2D/CompressedTexture2D::4540539535033127641::1745910756::1746272040::1::::<><><>0<>0<>f3758e72ddb27f6ceb729cf2874f38e2<>res://.godot/imported/Жрец.png-06e07d2c7b80db9f6b5298c3eca0c3f3.ctex::
+Лучник.png::CompressedTexture2D/CompressedTexture2D::3748372525495618801::1746271986::1746272040::1::::<><><>0<>0<>f9565619ae2596a202c81627095136c3<>res://.godot/imported/Лучник.png-f0d80f829c5fc26b3274911fe6a1ef3b.ctex::
+Некромант.png::CompressedTexture2D/CompressedTexture2D::8315542555342168746::1745910740::1746272040::1::::<><><>0<>0<>a403143ea13b92021a1a2d75cb0720d9<>res://.godot/imported/Некромант.png-9d40e01152ad8c959f978d196e67628c.ctex::
+поле.png::CompressedTexture2D::8014217787273335296::1746272447::1746280117::1::::<><><>0<>0<>adafa2b16d2e0cb15616dbd1606d28dc<>res://.godot/imported/поле.png-8804d90ecc38949e3a4b2c22f850a03b.ctex::
+Снайпер.png::CompressedTexture2D/CompressedTexture2D::7471522718262565606::1746271988::1746272040::1::::<><><>0<>0<>ad8d902fa03e2aeceba4bd735c358355<>res://.godot/imported/Снайпер.png-57e1c227ae16c5a8a9959378496ef7fa.ctex::
+Танк.png::CompressedTexture2D/CompressedTexture2D::9153476585838151227::1746271993::1746272040::1::::<><><>0<>0<>5ba7b2d9e8dc03437427b329d83961c2<>res://.godot/imported/Танк.png-608aaa35cac151a5f9b67ec448fa8c0d.ctex::
