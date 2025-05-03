@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfo08ge4kcltr"]
+
+[ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_qtxvi"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="2_fyoml"]
+[ext_resource type="Texture2D" uid="uid://c5eox7g0e8qb1" path="res://texture/Assasin.png" id="3_qtxvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("3_qtxvi")
+region = Rect2(16, 16, 32, 32)
+
+[node name="Player" instance=ExtResource("1_qtxvi")]
+position = Vector2(8, 8)
+script = ExtResource("2_fyoml")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_ct4mp")
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="1"]
+target_position = Vector2(0, 0)
+collide_with_areas = true

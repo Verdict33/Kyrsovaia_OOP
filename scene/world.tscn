@@ -1,10 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://elpoudo6sar2"]
+[gd_scene load_steps=20 format=3 uid="uid://elpoudo6sar2"]
 
-[ext_resource type="Texture2D" uid="uid://dmge84pk41gf5" path="res://texture/поле.png" id="1_0tg4p"]
-[ext_resource type="PackedScene" uid="uid://dnk6v6lauhqk4" path="res://scene/player.tscn" id="1_w4qq1"]
-[ext_resource type="PackedScene" uid="uid://bqnt2ur1bmoml" path="res://scene/enemy.tscn" id="3_w4qq1"]
+[ext_resource type="Texture2D" uid="uid://dmge84pk41gf5" path="res://texture/Field.png" id="1_0tg4p"]
+[ext_resource type="PackedScene" uid="uid://dnk6v6lauhqk4" path="res://scene/berserk.tscn" id="1_w4qq1"]
+[ext_resource type="PackedScene" uid="uid://drs3e1dx2dmxl" path="res://scene/skeleton1.tscn" id="3_hnm4a"]
+[ext_resource type="PackedScene" uid="uid://bqnt2ur1bmoml" path="res://scene/zombie.tscn" id="3_w4qq1"]
 [ext_resource type="Script" uid="uid://dij5iwcjikvfs" path="res://scripts/game_manager.gd" id="4_m5mgf"]
+[ext_resource type="PackedScene" uid="uid://sjhd5oihfw6j" path="res://scene/sniper.tscn" id="5_0tg4p"]
+[ext_resource type="PackedScene" uid="uid://wo43p675wkkx" path="res://scene/dark_knight.tscn" id="5_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://cpyeto8qsmerk" path="res://scene/trap.tscn" id="5_emkrx"]
+[ext_resource type="PackedScene" uid="uid://clmod1qnaayne" path="res://scene/orc.tscn" id="6_1402k"]
+[ext_resource type="PackedScene" uid="uid://cnlj0scssnvsr" path="res://scene/archmage.tscn" id="6_y3jn2"]
+[ext_resource type="PackedScene" uid="uid://2y03hgi1bm71" path="res://scene/skeleton2.tscn" id="7_ol7uo"]
+[ext_resource type="PackedScene" uid="uid://b0imdr66kdrpl" path="res://scene/hiller.tscn" id="7_yur6x"]
+[ext_resource type="PackedScene" uid="uid://dchevkgiwru5m" path="res://scene/archer.tscn" id="8_na5tu"]
+[ext_resource type="PackedScene" uid="uid://dfo08ge4kcltr" path="res://scene/assasin.tscn" id="9_jsnws"]
+[ext_resource type="PackedScene" uid="uid://b8m2m5c70kn0a" path="res://scene/crossbowman.tscn" id="10_f345f"]
+[ext_resource type="PackedScene" uid="uid://be77x12uytew8" path="res://scene/necromancer.tscn" id="15_a7xoa"]
+[ext_resource type="PackedScene" uid="uid://dwvatjnhyejgb" path="res://scene/tank.tscn" id="16_vme25"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hcb8y"]
 texture = ExtResource("1_0tg4p")
@@ -949,22 +961,48 @@ zoom = Vector2(0.475, 0.475)
 
 [node name="Enemys" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemys" instance=ExtResource("3_w4qq1")]
+[node name="Skeleton1" parent="Enemys" instance=ExtResource("3_hnm4a")]
+position = Vector2(216, 104)
+
+[node name="Zombie" parent="Enemys" instance=ExtResource("3_w4qq1")]
 position = Vector2(216, 72)
 
-[node name="Enemy2" parent="Enemys" instance=ExtResource("3_w4qq1")]
-position = Vector2(200, 136)
+[node name="Dark_knight" parent="Enemys" instance=ExtResource("5_e4vd1")]
+position = Vector2(248, 72)
+
+[node name="Orc" parent="Enemys" instance=ExtResource("6_1402k")]
+position = Vector2(248, 104)
+
+[node name="Skeleton2" parent="Enemys" instance=ExtResource("7_ol7uo")]
+position = Vector2(184, 56)
 
 [node name="Units" type="Node2D" parent="."]
 
-[node name="Player1" parent="Units" instance=ExtResource("1_w4qq1")]
+[node name="Berserk" parent="Units" instance=ExtResource("1_w4qq1")]
 position = Vector2(56, 56)
 
-[node name="Player2" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(72, 72)
+[node name="Sniper" parent="Units" instance=ExtResource("5_0tg4p")]
+position = Vector2(40, 8)
 
-[node name="Player3" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(24, 56)
+[node name="Archmage" parent="Units" instance=ExtResource("6_y3jn2")]
+position = Vector2(56, 40)
+
+[node name="Hiller" parent="Units" instance=ExtResource("7_yur6x")]
+position = Vector2(40, 56)
+
+[node name="Archer" parent="Units" instance=ExtResource("8_na5tu")]
+position = Vector2(40, 24)
+
+[node name="Assasin" parent="Units" instance=ExtResource("9_jsnws")]
+position = Vector2(56, 104)
+
+[node name="Crossbowman" parent="Units" instance=ExtResource("10_f345f")]
+position = Vector2(72, 104)
+
+[node name="Necromancer" parent="Units" instance=ExtResource("15_a7xoa")]
+position = Vector2(8, 104)
+
+[node name="Tank" parent="Units" instance=ExtResource("16_vme25")]
 
 [node name="Traps" type="Node" parent="."]
 

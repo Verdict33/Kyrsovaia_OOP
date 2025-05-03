@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://sjhd5oihfw6j"]
+
+[ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_xsqry"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="2_srjqa"]
+[ext_resource type="Texture2D" uid="uid://depi5ga6jio5c" path="res://texture/Sniper.png" id="3_xsqry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("3_xsqry")
+region = Rect2(16, 16, 32, 32)
+
+[node name="Player" instance=ExtResource("1_xsqry")]
+position = Vector2(8, 8)
+script = ExtResource("2_srjqa")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_ct4mp")
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="1"]
+target_position = Vector2(0, 0)
+collide_with_areas = true
