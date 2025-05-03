@@ -18,7 +18,11 @@ func _physics_process(delta: float) -> void:
 
 	if ray_cast_2d.is_colliding():
 		return
-
+	
+	check_for_traps()
+	if not is_instance_valid(self):
+		return
+	
 	if not is_moving:
 		target_position = tile_map.map_to_local(current_id_path.front())
 		is_moving = true

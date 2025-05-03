@@ -9,6 +9,9 @@ signal movement_finished
 func _physics_process(delta):
 	if is_moving:
 		process_movement(delta)
+		check_for_traps()
+		if not is_instance_valid(self):
+			return
 
 func make_turn() -> void:
 	if is_moving or has_moved:
@@ -79,7 +82,7 @@ func make_turn() -> void:
 				is_moving = true
 				await self.movement_finished
 
-				# ➕ Новая проверка после движения
+				# Новая проверка после движения
 				if is_instance_valid(nearest_unit) and can_attack(nearest_unit):
 					attack(nearest_unit)
 				
