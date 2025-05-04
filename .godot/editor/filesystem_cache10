@@ -1,15 +1,15 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1746347096
+::res://::1746381705
 icon.svg::CompressedTexture2D/CompressedTexture2D::5159980979347064829::1746301556::1746301556::1::::<><><>0<>0<>dc79b2064be2f06421161b61f0a0ed2b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://scene/::1746346763
-archer.tscn::PackedScene::7314371287172758080::1746346763::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://btn0fa6enj46h::::res://texture/Archer.png
+::res://scene/::1746348345
+archer.tscn::PackedScene::7314371287172758080::1746347860::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://btn0fa6enj46h::::res://texture/Archer.png
 archmage.tscn::PackedScene/PackedScene::5708596537110140177::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://b5wbqotssibrx::::res://texture/Archmage.png
 assasin.tscn::PackedScene/PackedScene::7540684736494726291::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://c5eox7g0e8qb1::::res://texture/Assasin.png
 berserk.tscn::PackedScene/PackedScene::8094282169605808873::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://c48um5lhsxiul::::res://texture/Berserk.png
 crossbowman.tscn::PackedScene/PackedScene::4729087425406304358::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://ct1vmbaj2h8ev::::res://texture/Crossbowman.png
 dark_knight.tscn::PackedScene/PackedScene::1574867480847203171::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cpbs1b0h4tcl8::::res://scripts/enemy.gd<>uid://bp7x0a0eddyqk::::res://texture/Dark_knight.png
 hiller.tscn::PackedScene/PackedScene::4158391700179190053::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://b5xqa1kufwme8::::res://texture/Hiller.png
-Main menu.tscn::PackedScene::2998941339339476243::1746346763::0::1::::<><><>0<>0<><>::uid://csgspdsbm2kfx::::res://scripts/menu_controller.gd<>uid://c7ycnhy7dx87w::::res://texture/00000.png
+Main menu.tscn::PackedScene::2998941339339476243::1746347860::0::1::::<><><>0<>0<><>::uid://csgspdsbm2kfx::::res://scripts/menu_controller.gd<>uid://c7ycnhy7dx87w::::res://texture/00000.png
 necromancer.tscn::PackedScene/PackedScene::2735221571661838581::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://dqqd1hihwf4rm::::res://texture/Necromancer.png
 orc.tscn::PackedScene/PackedScene::5570547966648383934::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cpbs1b0h4tcl8::::res://scripts/enemy.gd<>uid://crhnwlfipbotj::::res://texture/Orc.png
 skeleton1.tscn::PackedScene/PackedScene::8391339782794755633::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cpbs1b0h4tcl8::::res://scripts/enemy.gd<>uid://dyghb8xnf7pkm::::res://texture/Skeleton1.png
@@ -18,17 +18,17 @@ sniper.tscn::PackedScene/PackedScene::1282410559303027735::1746301556::0::1::::<
 tank.tscn::PackedScene/PackedScene::8746802967178360497::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cwp3jfdm2345r::::res://scripts/player.gd<>uid://d3oaol4owtmid::::res://texture/Tank.png
 trap.tscn::PackedScene/PackedScene::5875496673166326812::1746301556::0::1::::<><><>0<>0<><>::uid://3j4h1e3qc1lu::::res://scripts/trap.gd<>uid://dmge84pk41gf5::::res://texture/Field.png
 unit(class).tscn::PackedScene/PackedScene::4975838302583762223::1746301556::0::1::::<><><>0<>0<><>::uid://dtov4hemupu2q::::res://scripts/unit(class).gd
-world.tscn::PackedScene::304400341632599133::1746346763::0::1::::<><><>0<>0<><>::uid://dmge84pk41gf5::::res://texture/Field.png<>uid://dnk6v6lauhqk4::::res://scene/berserk.tscn<>uid://drs3e1dx2dmxl::::res://scene/skeleton1.tscn<>uid://bqnt2ur1bmoml::::res://scene/zombie.tscn<>uid://dij5iwcjikvfs::::res://scripts/game_manager.gd<>uid://sjhd5oihfw6j::::res://scene/sniper.tscn<>uid://wo43p675wkkx::::res://scene/dark_knight.tscn<>uid://cpyeto8qsmerk::::res://scene/trap.tscn<>uid://clmod1qnaayne::::res://scene/orc.tscn<>uid://cnlj0scssnvsr::::res://scene/archmage.tscn<>uid://2y03hgi1bm71::::res://scene/skeleton2.tscn<>uid://b0imdr66kdrpl::::res://scene/hiller.tscn<>uid://dchevkgiwru5m::::res://scene/archer.tscn<>uid://dfo08ge4kcltr::::res://scene/assasin.tscn<>uid://b8m2m5c70kn0a::::res://scene/crossbowman.tscn<>uid://be77x12uytew8::::res://scene/necromancer.tscn<>uid://dwvatjnhyejgb::::res://scene/tank.tscn
+world.tscn::PackedScene::304400341632599133::1746347860::0::1::::<><><>0<>0<><>::uid://dmge84pk41gf5::::res://texture/Field.png<>uid://dnk6v6lauhqk4::::res://scene/berserk.tscn<>uid://drs3e1dx2dmxl::::res://scene/skeleton1.tscn<>uid://bqnt2ur1bmoml::::res://scene/zombie.tscn<>uid://dij5iwcjikvfs::::res://scripts/game_manager.gd<>uid://sjhd5oihfw6j::::res://scene/sniper.tscn<>uid://wo43p675wkkx::::res://scene/dark_knight.tscn<>uid://cpyeto8qsmerk::::res://scene/trap.tscn<>uid://clmod1qnaayne::::res://scene/orc.tscn<>uid://cnlj0scssnvsr::::res://scene/archmage.tscn<>uid://2y03hgi1bm71::::res://scene/skeleton2.tscn<>uid://b0imdr66kdrpl::::res://scene/hiller.tscn<>uid://dchevkgiwru5m::::res://scene/archer.tscn<>uid://dfo08ge4kcltr::::res://scene/assasin.tscn<>uid://b8m2m5c70kn0a::::res://scene/crossbowman.tscn<>uid://be77x12uytew8::::res://scene/necromancer.tscn<>uid://dwvatjnhyejgb::::res://scene/tank.tscn
 zombie.tscn::PackedScene/PackedScene::3537482009914214859::1746301556::0::1::::<><><>0<>0<><>::uid://cc5llhk81savv::::res://scene/unit(class).tscn<>uid://cpbs1b0h4tcl8::::res://scripts/enemy.gd<>uid://b8cmlbfnedkgt::::res://texture/Zombie.png
-::res://scripts/::1746342757
+::res://scripts/::1746348345
 enemy.gd::GDScript/GDScript::5828877827723083047::1746301556::0::1::::<>Unit<><>0<>0<><>::
-game_manager.gd::GDScript::7741189155127672320::1746342757::0::1::::<>Node2D<><>0<>0<><>::
-menu_controller.gd::GDScript::6049746697612587809::1746342455::0::1::::<>Control<><>0<>0<><>::
+game_manager.gd::GDScript::7741189155127672320::1746347728::0::1::::<>Node2D<><>0<>0<><>::
+menu_controller.gd::GDScript/GDScript::6049746697612587809::1746342455::0::1::::<>Control<><>0<>0<><>::
 player.gd::GDScript/GDScript::6349678009510021457::1746301556::0::1::::<>Unit<><>0<>0<><>::
 scroll_label.gd::GDScript/GDScript::7634780990807874445::1721596980::0::1::::<>Label<><>0<>0<><>::
 trap.gd::GDScript/GDScript::1985641688079010178::1746301556::0::1::::Trap<>Node2D<><>0<>0<><>::
 unit(class).gd::GDScript/GDScript::8523078588045327150::1746301556::0::1::::Unit<>Node2D<><>0<>0<><>::
-::res://texture/::1746340129
+::res://texture/::1746348345
 00000.png::CompressedTexture2D/CompressedTexture2D::7068574485404612418::1721596980::1746340129::1::::<><><>0<>0<>42fd300854586233f366e9e2e24962ae<>res://.godot/imported/00000.png-0961c5108a7475d13d9c8e7d736f8bd2.ctex::
 Archer.png::CompressedTexture2D/CompressedTexture2D::3748372525495618801::1746301556::1746301556::1::::<><><>0<>0<>866de08d4c066e36bf0411283ad5cf8a<>res://.godot/imported/Archer.png-5b471604e5e2612a22886f47e9f4b875.ctex::
 Archmage.png::CompressedTexture2D/CompressedTexture2D::4537592358639026237::1746301556::1746301556::1::::<><><>0<>0<>329b9d34dcfd201c52eb8d36d54a4240<>res://.godot/imported/Archmage.png-634b08c57a4c30d7790c359bb6fe92bf.ctex::
