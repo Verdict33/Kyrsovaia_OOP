@@ -1003,6 +1003,7 @@ position = Vector2(72, 104)
 position = Vector2(8, 104)
 
 [node name="Tank" parent="Units" instance=ExtResource("16_vme25")]
+position = Vector2(24, 8)
 
 [node name="Traps" type="Node" parent="."]
 

@@ -30,7 +30,7 @@ func _unhandled_input(event):
 		if clicked_unit and not clicked_unit.has_moved:
 			selected_unit = clicked_unit
 			print("Выбран юнит:", selected_unit.name)
-			show_movement_range(selected_unit)  # <--- ЭТО ДОБАВИТЬ
+			show_movement_range(selected_unit)
 			return
 
 

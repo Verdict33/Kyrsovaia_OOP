@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
 atlas = ExtResource("3_c1ogp")
-region = Rect2(16, 16, 32, 32)
+region = Rect2(18.875, 16, 22.735, 32)
 
 [node name="Player" instance=ExtResource("1_c1ogp")]
 position = Vector2(8, 8)
