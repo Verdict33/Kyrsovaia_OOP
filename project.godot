@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GD"
-run/main_scene="res://scene/world.tscn"
+run/main_scene="uid://biyyejk3jgomd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scripts/game_manager.gd"
 
 [display]
 

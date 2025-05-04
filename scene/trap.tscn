@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpyeto8qsmerk"]
+
+[ext_resource type="Script" uid="uid://3j4h1e3qc1lu" path="res://scripts/trap.gd" id="1_qx3ty"]
+[ext_resource type="Texture2D" uid="uid://dmge84pk41gf5" path="res://texture/Field.png" id="2_qx3ty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx3ty"]
+atlas = ExtResource("2_qx3ty")
+region = Rect2(16, 368, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0q2j"]
+size = Vector2(16, 16)
+
+[node name="Trap" type="Node2D"]
+script = ExtResource("1_qx3ty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = SubResource("AtlasTexture_qx3ty")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_a0q2j")
