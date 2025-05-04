@@ -103,6 +103,7 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
 		die()
+		GameManager.check_game_over()
 
 func die():
 	if is_inside_tree():

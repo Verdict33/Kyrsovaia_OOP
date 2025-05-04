@@ -1,13 +1,5 @@
 extends Control
-# Please check the documentation about
-# Displayserver class : https://docs.godotengine.org/en/stable/classes/class_displayserver.html
 
-#--
-# Check out Colorblind addon for godot : https://github.com/paulloz/godot-colorblindness
-#--
-
-# Config file
-# Move it into a singleton
 var settings_file = ConfigFile.new()
 var vsync: int = 0
 var audio: Vector3 = Vector3(70.0, 70.0, 70.0)

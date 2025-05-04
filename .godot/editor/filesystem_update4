@@ -1,10 +1,6 @@
-res://scene/archmage.tscn
-res://scripts/game_manager.gd
 res://scene/world.tscn
-res://scene/unit(class).tscn
-res://scene/necromancer.tscn
-res://scene/sniper.tscn
-res://scene/tank.tscn
-res://scene/trap.tscn
+res://scripts/game_manager.gd
+res://scripts/unit(class).gd
 res://scene/Main menu.tscn
+res://scripts/enemy.gd
 res://scripts/menu_controller.gd

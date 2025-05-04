@@ -14,7 +14,6 @@ const HIGHLIGHT_TILE_ID = 1
 
 
 func _ready():
-	# откладываем запуск на 1 кадр — сцена точно успеет полностью загрузиться
 	call_deferred("start_game")
 
 
@@ -180,3 +179,27 @@ func wait_until_enemies_done():
 
 func remove_unit(unit: Unit) -> void:
 	player_units.erase(unit)
+
+@onready var layer_end = get_node("/root/world/layer_end")
+
+func check_game_over():
+	var player_alive = player_units.any(func(u): return is_instance_valid(u) and u.health > 0)
+	var enemy_alive = get_node("/root/world/Enemys").get_children().any(func(u): return u is Unit and is_instance_valid(u) and u.health > 0)
+
+	if not player_alive or not enemy_alive:
+		show_game_over_message(player_alive)
+
+func show_game_over_message(player_won: bool):
+	var layer = get_node("/root/world/layer_end")
+	
+	var label = layer.get_node("GameOverLabel")
+	
+	label.text = "Игра окончена"
+	label.global_position = tile_map.map_to_local(Vector2i(1, 3))
+	label.visible = true
+	
+	set_process_input(false)
+	
+	await get_tree().create_timer(2.0).timeout
+	
+	get_tree().quit()

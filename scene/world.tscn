@@ -979,22 +979,22 @@ position = Vector2(184, 56)
 [node name="Units" type="Node2D" parent="."]
 
 [node name="Berserk" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(56, 56)
+position = Vector2(216, 56)
 
 [node name="Sniper" parent="Units" instance=ExtResource("5_0tg4p")]
-position = Vector2(40, 8)
+position = Vector2(216, 121)
 
 [node name="Archmage" parent="Units" instance=ExtResource("6_y3jn2")]
-position = Vector2(56, 40)
+position = Vector2(200, 56)
 
 [node name="Hiller" parent="Units" instance=ExtResource("7_yur6x")]
 position = Vector2(40, 56)
 
 [node name="Archer" parent="Units" instance=ExtResource("8_na5tu")]
-position = Vector2(40, 24)
+position = Vector2(264, 104)
 
 [node name="Assasin" parent="Units" instance=ExtResource("9_jsnws")]
-position = Vector2(56, 104)
+position = Vector2(200, 88)
 
 [node name="Crossbowman" parent="Units" instance=ExtResource("10_f345f")]
 position = Vector2(72, 104)
@@ -1009,3 +1009,11 @@ position = Vector2(24, 8)
 
 [node name="Trap" parent="Traps" instance=ExtResource("5_emkrx")]
 position = Vector2(48, 64)
+
+[node name="layer_end" type="CanvasLayer" parent="."]
+
+[node name="GameOverLabel" type="Label" parent="layer_end"]
+offset_left = 112.0
+offset_top = 128.0
+offset_right = 152.0
+offset_bottom = 151.0
