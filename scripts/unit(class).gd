@@ -31,9 +31,6 @@ func _ready() -> void:
 				astar_grid.set_point_solid(tile_position)
 
 
-func _input(event) -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	pass
 

@@ -1,22 +1,36 @@
 extends Node2D
 
-@onready var units_container = get_node("/root/world/Units")
-@onready var tile_map = get_node("/root/world/TileMap")
+@onready var selected_unit: Unit = null
+@onready var player_units: Array[Unit] = []
+@onready var turn_state = TurnState.PLAYER_TURN
 
-var selected_unit: Unit = null
-var player_units: Array[Unit] = []
+var units_container: Node = null
+var tile_map: TileMap = null
+
 enum TurnState { PLAYER_TURN, ENEMY_TURN }
-var turn_state = TurnState.PLAYER_TURN
 
-const HIGHLIGHT_LAYER = 1  # Слой для подсветки
-const HIGHLIGHT_TILE_ID = 1  # ID тайла подсветки
+const HIGHLIGHT_LAYER = 1
+const HIGHLIGHT_TILE_ID = 1
 
 
 func _ready():
-	# Собираем всех юнитов игрока
+	# откладываем запуск на 1 кадр — сцена точно успеет полностью загрузиться
+	call_deferred("start_game")
+
+
+func start_game():
+	while not get_node_or_null("/root/world/Units") or not get_node_or_null("/root/world/TileMap"):
+		await get_tree().process_frame  # ждём кадр, пока не появятся нужные узлы
+
+	units_container = get_node("/root/world/Units")
+	tile_map = get_node("/root/world/TileMap")
+
+  # Теперь, когда всё есть, можно безопасно работать с юнитами
 	for child in units_container.get_children():
 		if child is Unit:
 			player_units.append(child)
+
+	print("Юниты загружены:", player_units.size())
 
 
 func _unhandled_input(event):
