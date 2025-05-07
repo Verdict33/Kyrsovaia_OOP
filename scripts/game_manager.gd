@@ -1,35 +1,37 @@
 extends Node2D
 
-@onready var selected_unit: Unit = null
-@onready var player_units: Array[Unit] = []
-@onready var turn_state = TurnState.PLAYER_TURN
+@onready var selected_unit: Unit = null # Выбранный игроком юнит
 
-var units_container: Node = null
-var tile_map: TileMap = null
+@onready var player_units: Array[Unit] = [] # Все юнит игрока
 
-enum TurnState { PLAYER_TURN, ENEMY_TURN }
+@onready var turn_state = TurnState.PLAYER_TURN # Отслеживание хода, игрок или враг
 
-const HIGHLIGHT_LAYER = 1
-const HIGHLIGHT_TILE_ID = 1
+var units_container: Node = null # Хранятся все юниты поля
 
+var tile_map: TileMap = null # TileMap (рассчитывается движение и позиции)
 
+enum TurnState { PLAYER_TURN, ENEMY_TURN } # Перечисление состояний хода
+
+const HIGHLIGHT_LAYER = 1 # слой подсветки
+
+# Функция готода для начала игры
 func _ready():
 	call_deferred("start_game")
 
 
 func start_game():
+	# Пока узлы Units и TileMap не существуют в дереве сцены — ждём. 
 	while not get_node_or_null("/root/world/Units") or not get_node_or_null("/root/world/TileMap"):
-		await get_tree().process_frame  # ждём кадр, пока не появятся нужные узлы
+		await get_tree().process_frame  # ждём один кадр перед следующей проверкой
 
+	# Когда нужные узлы появились — сохраняем ссылки на них
 	units_container = get_node("/root/world/Units")
 	tile_map = get_node("/root/world/TileMap")
 
-  # Теперь, когда всё есть, можно безопасно работать с юнитами
+	# Добавляем в список player_units только объекты типа Unit из узла Units
 	for child in units_container.get_children():
 		if child is Unit:
 			player_units.append(child)
-
-	print("Юниты загружены:", player_units.size())
 
 
 func _unhandled_input(event):

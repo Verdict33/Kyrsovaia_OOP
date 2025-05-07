@@ -1,6 +1,1 @@
 res://scene/world.tscn
-res://scripts/game_manager.gd
-res://scripts/unit(class).gd
-res://scene/Main menu.tscn
-res://scripts/enemy.gd
-res://scripts/menu_controller.gd
