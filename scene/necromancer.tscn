@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://be77x12uytew8"]
+
+[ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_c4uj7"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="2_d87ek"]
+[ext_resource type="Texture2D" uid="uid://dqqd1hihwf4rm" path="res://texture/Necromancer.png" id="3_c4uj7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("3_c4uj7")
+region = Rect2(23.975, 27, 17.91, 21.825)
+
+[node name="Player" instance=ExtResource("1_c4uj7")]
+position = Vector2(8, 8)
+script = ExtResource("2_d87ek")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.685, 0.685)
+texture = SubResource("AtlasTexture_ct4mp")
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="1"]
+target_position = Vector2(0, 0)
+collide_with_areas = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eshs7iqmr4ta"
-path="res://.godot/imported/spr_grass_tileset.png-6949a8b43bc22444f2b809be771b7f0f.ctex"
+uid="uid://c5eox7g0e8qb1"
+path="res://.godot/imported/Assasin.png-45315bb3a52ca04a0c5265cacb5edcf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/spr_grass_tileset.png"
-dest_files=["res://.godot/imported/spr_grass_tileset.png-6949a8b43bc22444f2b809be771b7f0f.ctex"]
+source_file="res://texture/Assasin.png"
+dest_files=["res://.godot/imported/Assasin.png-45315bb3a52ca04a0c5265cacb5edcf4.ctex"]
 
 [params]
 

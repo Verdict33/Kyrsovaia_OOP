@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5wbqotssibrx"
-path="res://.godot/imported/Архимаг.png-f76bebda5316e6ac44db93d951e72aac.ctex"
+uid="uid://d3oaol4owtmid"
+path="res://.godot/imported/Tank.png-1ea61ad79ec6316852a1f1ebf38c6a2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Архимаг.png"
-dest_files=["res://.godot/imported/Архимаг.png-f76bebda5316e6ac44db93d951e72aac.ctex"]
+source_file="res://texture/Tank.png"
+dest_files=["res://.godot/imported/Tank.png-1ea61ad79ec6316852a1f1ebf38c6a2f.ctex"]
 
 [params]
 

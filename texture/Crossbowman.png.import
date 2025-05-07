@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ihshqgqempo"
-path="res://.godot/imported/tilemap_packed.png-6866ccd6565eb7450fe553feb0ea432a.ctex"
+uid="uid://ct1vmbaj2h8ev"
+path="res://.godot/imported/Crossbowman.png-32223f2af3b971cf4b93b5acdd7e4559.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/tilemap_packed.png"
-dest_files=["res://.godot/imported/tilemap_packed.png-6866ccd6565eb7450fe553feb0ea432a.ctex"]
+source_file="res://texture/Crossbowman.png"
+dest_files=["res://.godot/imported/Crossbowman.png-32223f2af3b971cf4b93b5acdd7e4559.ctex"]
 
 [params]
 

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8m2m5c70kn0a"]
+
+[ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_gqe7m"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="2_ulrm7"]
+[ext_resource type="Texture2D" uid="uid://ct1vmbaj2h8ev" path="res://texture/Crossbowman.png" id="3_gqe7m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("3_gqe7m")
+region = Rect2(18.995, 16, 23.835, 32)
+
+[node name="Player" instance=ExtResource("1_gqe7m")]
+position = Vector2(8, 8)
+script = ExtResource("2_ulrm7")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_ct4mp")
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="1"]
+target_position = Vector2(0, 0)
+collide_with_areas = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmge84pk41gf5"
-path="res://.godot/imported/поле.png-8804d90ecc38949e3a4b2c22f850a03b.ctex"
+uid="uid://bwtuby2wjhrb"
+path="res://.godot/imported/Skeleton2.png-dca7cdb372c8f9f43ec4b629cebf4210.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/поле.png"
-dest_files=["res://.godot/imported/поле.png-8804d90ecc38949e3a4b2c22f850a03b.ctex"]
+source_file="res://texture/Skeleton2.png"
+dest_files=["res://.godot/imported/Skeleton2.png-dca7cdb372c8f9f43ec4b629cebf4210.ctex"]
 
 [params]
 

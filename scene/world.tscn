@@ -1,10 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://elpoudo6sar2"]
+[gd_scene load_steps=20 format=3 uid="uid://elpoudo6sar2"]
 
-[ext_resource type="Texture2D" uid="uid://dmge84pk41gf5" path="res://texture/поле.png" id="1_0tg4p"]
-[ext_resource type="PackedScene" uid="uid://dnk6v6lauhqk4" path="res://scene/player.tscn" id="1_w4qq1"]
-[ext_resource type="PackedScene" uid="uid://bqnt2ur1bmoml" path="res://scene/enemy.tscn" id="3_w4qq1"]
+[ext_resource type="Texture2D" uid="uid://dmge84pk41gf5" path="res://texture/Field.png" id="1_0tg4p"]
+[ext_resource type="PackedScene" uid="uid://dnk6v6lauhqk4" path="res://scene/berserk.tscn" id="1_w4qq1"]
+[ext_resource type="PackedScene" uid="uid://drs3e1dx2dmxl" path="res://scene/skeleton1.tscn" id="3_hnm4a"]
+[ext_resource type="PackedScene" uid="uid://bqnt2ur1bmoml" path="res://scene/zombie.tscn" id="3_w4qq1"]
 [ext_resource type="Script" uid="uid://dij5iwcjikvfs" path="res://scripts/game_manager.gd" id="4_m5mgf"]
+[ext_resource type="PackedScene" uid="uid://sjhd5oihfw6j" path="res://scene/sniper.tscn" id="5_0tg4p"]
+[ext_resource type="PackedScene" uid="uid://wo43p675wkkx" path="res://scene/dark_knight.tscn" id="5_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://cpyeto8qsmerk" path="res://scene/trap.tscn" id="5_emkrx"]
+[ext_resource type="PackedScene" uid="uid://clmod1qnaayne" path="res://scene/orc.tscn" id="6_1402k"]
+[ext_resource type="PackedScene" uid="uid://cnlj0scssnvsr" path="res://scene/archmage.tscn" id="6_y3jn2"]
+[ext_resource type="PackedScene" uid="uid://2y03hgi1bm71" path="res://scene/skeleton2.tscn" id="7_ol7uo"]
+[ext_resource type="PackedScene" uid="uid://b0imdr66kdrpl" path="res://scene/hiller.tscn" id="7_yur6x"]
+[ext_resource type="PackedScene" uid="uid://dchevkgiwru5m" path="res://scene/archer.tscn" id="8_na5tu"]
+[ext_resource type="PackedScene" uid="uid://dfo08ge4kcltr" path="res://scene/assasin.tscn" id="9_jsnws"]
+[ext_resource type="PackedScene" uid="uid://b8m2m5c70kn0a" path="res://scene/crossbowman.tscn" id="10_f345f"]
+[ext_resource type="PackedScene" uid="uid://be77x12uytew8" path="res://scene/necromancer.tscn" id="15_a7xoa"]
+[ext_resource type="PackedScene" uid="uid://dwvatjnhyejgb" path="res://scene/tank.tscn" id="16_vme25"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hcb8y"]
 texture = ExtResource("1_0tg4p")
@@ -932,7 +944,7 @@ format = 2
 layer_0/name = "main"
 layer_0/tile_data = PackedInt32Array(0, 589824, 7, 65536, 917504, 13, 131072, 589824, 7, 196608, 851968, 13, 262144, 458752, 8, 327680, 589824, 7, 393216, 589824, 7, 458752, 589824, 7, 524288, 589824, 7, 589824, 851968, 13, 655360, 851968, 14, 720896, 589824, 7, 786432, 458752, 9, 851968, 917504, 13, 917504, 917504, 14, 983040, 589824, 7, 1048576, 589824, 7, 1, 589824, 7, 65537, 851968, 14, 131073, 917504, 13, 196609, 917504, 13, 262145, 393216, 8, 327681, 917504, 14, 393217, 65536, 24, 458753, 851968, 13, 524289, 917504, 14, 589825, 851968, 13, 655361, 589824, 7, 720897, 589824, 7, 786433, 393216, 9, 851969, 65536, 24, 917505, 917504, 14, 983041, 917504, 14, 1048577, 851968, 14, 2, 589824, 7, 65538, 851968, 13, 131074, 589824, 7, 196610, 589824, 7, 262146, 393216, 8, 327682, 589824, 7, 393218, 589824, 7, 458754, 851968, 14, 524290, 589824, 7, 589826, 65536, 24, 655362, 589824, 7, 720898, 917504, 14, 786434, 458752, 9, 851970, 589824, 7, 917506, 393216, 24, 983042, 393216, 25, 1048578, 589824, 7, 3, 917504, 14, 65539, 589824, 7, 131075, 589824, 7, 196611, 851968, 13, 262147, 458752, 8, 327683, 851968, 14, 393219, 851968, 14, 458755, 917504, 14, 524291, 851968, 14, 589827, 851968, 13, 655363, 851968, 13, 720899, 589824, 7, 786435, 393216, 8, 851971, 589824, 7, 917507, 458752, 24, 983043, 458752, 25, 1048579, 589824, 7, 4, 65536, 24, 65540, 851968, 14, 131076, 589824, 7, 196612, 589824, 7, 262148, 458752, 8, 327684, 917504, 14, 393220, 589824, 7, 458756, 589824, 7, 524292, 589824, 7, 589828, 851968, 14, 655364, 65536, 24, 720900, 589824, 7, 786436, 393216, 9, 851972, 589824, 7, 917508, 917504, 14, 983044, 851968, 13, 1048580, 589824, 7, 5, 1048576, 13, 65541, 1048576, 14, 131077, 1048576, 13, 196613, 720896, 19, 262149, 720896, 20, 327685, 720896, 21, 393221, 1048576, 13, 458757, 1048576, 14, 524293, 1048576, 13, 589829, 1048576, 14, 655365, 1048576, 13, 720901, 720896, 19, 786437, 720896, 20, 851973, 720896, 21, 917509, 1048576, 13, 983045, 1048576, 14, 1048581, 1048576, 13, 6, 1114112, 14, 65542, 1114112, 13, 131078, 1179648, 13, 196614, 786432, 19, 262150, 786432, 20, 327686, 786432, 21, 393222, 1179648, 13, 458758, 1179648, 13, 524294, 1179648, 13, 589830, 1179648, 13, 655366, 1179648, 13, 720902, 786432, 19, 786438, 786432, 20, 851974, 786432, 21, 917510, 1114112, 13, 983046, 1114112, 14, 1048582, 1114112, 13, 7, 1179648, 14, 589831, 1179648, 13, 655367, 1179648, 13, 720903, 851968, 19, 786439, 851968, 20, 851975, 851968, 21, 917511, 1179648, 13, 983047, 1179648, 14, 1048583, 1179648, 13, 8, 1245184, 14, 65544, 1245184, 13, 131080, 1179648, 13, 196616, 917504, 19, 262152, 917504, 20, 327688, 917504, 21, 393224, 1179648, 13, 458760, 1179648, 13, 524296, 1179648, 13, 589832, 1179648, 13, 655368, 1179648, 13, 720904, 917504, 19, 786440, 917504, 20, 851976, 917504, 21, 917512, 1245184, 13, 983048, 1245184, 14, 1048584, 1245184, 13, 9, 1114112, 14, 65545, 1114112, 13, 131081, 1179648, 13, 196617, 983040, 19, 262153, 983040, 20, 327689, 983040, 21, 393225, 1179648, 13, 458761, 1179648, 13, 524297, 1179648, 13, 589833, 1179648, 13, 655369, 1179648, 13, 720905, 983040, 19, 786441, 983040, 20, 851977, 983040, 21, 917513, 1114112, 13, 983049, 1114112, 14, 1048585, 1114112, 13, 10, 1310720, 14, 65546, 1310720, 13, 131082, 1310720, 14, 196618, 1048576, 19, 262154, 1048576, 20, 327690, 1048576, 21, 393226, 1310720, 14, 458762, 1310720, 13, 524298, 1310720, 14, 589834, 1310720, 13, 655370, 1310720, 14, 720906, 1048576, 19, 786442, 1048576, 20, 851978, 1048576, 21, 917514, 1310720, 14, 983050, 1310720, 13, 1048586, 1310720, 14, 11, 589824, 7, 65547, 851968, 14, 131083, 589824, 7, 196619, 589824, 7, 262155, 393216, 8, 327691, 589824, 7, 393227, 589824, 7, 458763, 589824, 7, 524299, 589824, 7, 589835, 851968, 14, 655371, 851968, 14, 720907, 917504, 14, 786443, 393216, 8, 851979, 589824, 7, 917515, 589824, 7, 983051, 393216, 24, 1048587, 393216, 25, 12, 851968, 14, 65548, 393216, 24, 131084, 393216, 25, 196620, 589824, 7, 262156, 458752, 8, 327692, 917504, 14, 393228, 589824, 7, 458764, 65536, 24, 524300, 917504, 14, 589836, 589824, 7, 655372, 589824, 7, 720908, 851968, 13, 786444, 458752, 9, 851980, 589824, 7, 917516, 851968, 14, 983052, 458752, 24, 1048588, 458752, 25, 13, 917504, 14, 65549, 458752, 24, 131085, 458752, 25, 196621, 589824, 7, 262157, 458752, 8, 327693, 589824, 7, 393229, 851968, 13, 458765, 851968, 14, 524301, 851968, 13, 589837, 589824, 7, 655373, 589824, 7, 720909, 851968, 14, 786445, 393216, 8, 851981, 589824, 7, 917517, 589824, 7, 983053, 851968, 13, 1048589, 589824, 7, 14, 851968, 14, 65550, 589824, 7, 131086, 851968, 13, 196622, 589824, 7, 262158, 458752, 9, 327694, 589824, 7, 393230, 589824, 7, 458766, 917504, 13, 524302, 589824, 7, 589838, 65536, 24, 655374, 589824, 7, 720910, 851968, 13, 786446, 393216, 9, 851982, 589824, 7, 917518, 851968, 14, 983054, 589824, 7, 1048590, 917504, 14, 15, 851968, 14, 65551, 589824, 7, 131087, 917504, 14, 196623, 917504, 14, 262159, 393216, 8, 327695, 851968, 14, 393231, 851968, 13, 458767, 851968, 14, 524303, 589824, 7, 589839, 917504, 14, 655375, 589824, 7, 720911, 589824, 7, 786447, 458752, 8, 851983, 589824, 7, 917519, 917504, 13, 983055, 917504, 13, 1048591, 589824, 7, 16, 917504, 14, 65552, 589824, 7, 131088, 589824, 7, 196624, 589824, 7, 262160, 458752, 9, 327696, 589824, 7, 393232, 917504, 14, 458768, 917504, 14, 524304, 589824, 7, 589840, 917504, 13, 655376, 851968, 13, 720912, 917504, 13, 786448, 458752, 9, 851984, 851968, 14, 917520, 851968, 13, 983056, 917504, 13, 1048592, 589824, 7, 65543, 1179648, 13, 131079, 1179648, 13, 196615, 851968, 19, 262151, 851968, 20, 327687, 851968, 21, 393223, 1179648, 13, 458759, 1179648, 13, 524295, 1179648, 13)
 layer_1/name = "liht"
-layer_1/modulate = Color(0.568627, 0.192157, 0.223529, 0.419608)
+layer_1/modulate = Color(0.568627, 0.192157, 0.223529, 0.780392)
 layer_1/z_index = 1
 layer_1/navigation_enabled = false
 layer_2/name = "decor"
@@ -949,24 +961,59 @@ zoom = Vector2(0.475, 0.475)
 
 [node name="Enemys" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemys" instance=ExtResource("3_w4qq1")]
+[node name="Skeleton1" parent="Enemys" instance=ExtResource("3_hnm4a")]
+position = Vector2(216, 104)
+
+[node name="Zombie" parent="Enemys" instance=ExtResource("3_w4qq1")]
 position = Vector2(216, 72)
 
-[node name="Enemy2" parent="Enemys" instance=ExtResource("3_w4qq1")]
-position = Vector2(200, 136)
+[node name="Dark_knight" parent="Enemys" instance=ExtResource("5_e4vd1")]
+position = Vector2(248, 72)
+
+[node name="Orc" parent="Enemys" instance=ExtResource("6_1402k")]
+position = Vector2(248, 104)
+
+[node name="Skeleton2" parent="Enemys" instance=ExtResource("7_ol7uo")]
+position = Vector2(184, 56)
 
 [node name="Units" type="Node2D" parent="."]
 
-[node name="Player1" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(56, 56)
+[node name="Berserk" parent="Units" instance=ExtResource("1_w4qq1")]
+position = Vector2(216, 56)
 
-[node name="Player2" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(72, 72)
+[node name="Sniper" parent="Units" instance=ExtResource("5_0tg4p")]
+position = Vector2(216, 121)
 
-[node name="Player3" parent="Units" instance=ExtResource("1_w4qq1")]
-position = Vector2(24, 56)
+[node name="Archmage" parent="Units" instance=ExtResource("6_y3jn2")]
+position = Vector2(200, 56)
 
-[node name="Traps" type="Node" parent="."]
+[node name="Hiller" parent="Units" instance=ExtResource("7_yur6x")]
+position = Vector2(40, 56)
+
+[node name="Archer" parent="Units" instance=ExtResource("8_na5tu")]
+position = Vector2(264, 104)
+
+[node name="Assasin" parent="Units" instance=ExtResource("9_jsnws")]
+position = Vector2(200, 88)
+
+[node name="Crossbowman" parent="Units" instance=ExtResource("10_f345f")]
+position = Vector2(72, 104)
+
+[node name="Necromancer" parent="Units" instance=ExtResource("15_a7xoa")]
+position = Vector2(8, 104)
+
+[node name="Tank" parent="Units" instance=ExtResource("16_vme25")]
+position = Vector2(24, 8)
+
+[node name="Traps" type="Node2D" parent="."]
 
 [node name="Trap" parent="Traps" instance=ExtResource("5_emkrx")]
 position = Vector2(48, 64)
+
+[node name="layer_end" type="CanvasLayer" parent="."]
+
+[node name="GameOverLabel" type="Label" parent="layer_end"]
+offset_left = 112.0
+offset_top = 128.0
+offset_right = 152.0
+offset_bottom = 151.0

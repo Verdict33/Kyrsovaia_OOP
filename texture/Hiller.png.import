@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://depi5ga6jio5c"
-path="res://.godot/imported/Снайпер.png-57e1c227ae16c5a8a9959378496ef7fa.ctex"
+uid="uid://b5xqa1kufwme8"
+path="res://.godot/imported/Hiller.png-5df3974b50f9bed8b91a84203b56db22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Снайпер.png"
-dest_files=["res://.godot/imported/Снайпер.png-57e1c227ae16c5a8a9959378496ef7fa.ctex"]
+source_file="res://texture/Hiller.png"
+dest_files=["res://.godot/imported/Hiller.png-5df3974b50f9bed8b91a84203b56db22.ctex"]
 
 [params]
 

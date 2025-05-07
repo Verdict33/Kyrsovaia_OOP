@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqqd1hihwf4rm"
-path="res://.godot/imported/Некромант.png-9d40e01152ad8c959f978d196e67628c.ctex"
+uid="uid://dyghb8xnf7pkm"
+path="res://.godot/imported/Skeleton1.png-78c0b707218765aa270d7927ad1081e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Некромант.png"
-dest_files=["res://.godot/imported/Некромант.png-9d40e01152ad8c959f978d196e67628c.ctex"]
+source_file="res://texture/Skeleton1.png"
+dest_files=["res://.godot/imported/Skeleton1.png-78c0b707218765aa270d7927ad1081e2.ctex"]
 
 [params]
 

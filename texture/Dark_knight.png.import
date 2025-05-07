@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cic326fkvljoq"
-path="res://.godot/imported/Character 1.png-567c22adfa83442cbb8b63bde912c0b2.ctex"
+uid="uid://bp7x0a0eddyqk"
+path="res://.godot/imported/Dark_knight.png-309e3f7b7014d9a9cb2a58916f3fa4f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Character 1.png"
-dest_files=["res://.godot/imported/Character 1.png-567c22adfa83442cbb8b63bde912c0b2.ctex"]
+source_file="res://texture/Dark_knight.png"
+dest_files=["res://.godot/imported/Dark_knight.png-309e3f7b7014d9a9cb2a58916f3fa4f3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5xqa1kufwme8"
-path="res://.godot/imported/Жрец.png-06e07d2c7b80db9f6b5298c3eca0c3f3.ctex"
+uid="uid://btn0fa6enj46h"
+path="res://.godot/imported/Archer.png-5b471604e5e2612a22886f47e9f4b875.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Жрец.png"
-dest_files=["res://.godot/imported/Жрец.png-06e07d2c7b80db9f6b5298c3eca0c3f3.ctex"]
+source_file="res://texture/Archer.png"
+dest_files=["res://.godot/imported/Archer.png-5b471604e5e2612a22886f47e9f4b875.ctex"]
 
 [params]
 

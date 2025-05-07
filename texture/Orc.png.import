@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3oaol4owtmid"
-path="res://.godot/imported/Танк.png-608aaa35cac151a5f9b67ec448fa8c0d.ctex"
+uid="uid://crhnwlfipbotj"
+path="res://.godot/imported/Orc.png-409fe9af7148936af7cf36533cba300b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Танк.png"
-dest_files=["res://.godot/imported/Танк.png-608aaa35cac151a5f9b67ec448fa8c0d.ctex"]
+source_file="res://texture/Orc.png"
+dest_files=["res://.godot/imported/Orc.png-409fe9af7148936af7cf36533cba300b.ctex"]
 
 [params]
 

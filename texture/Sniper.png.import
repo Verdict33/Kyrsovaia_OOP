@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8cmlbfnedkgt"
-path="res://.godot/imported/Zombie_Big.png-8e9f98a0b3fb51d52684a8d0495a04f1.ctex"
+uid="uid://depi5ga6jio5c"
+path="res://.godot/imported/Sniper.png-d50eb77b78fcdf124f389eb456c617f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Zombie_Big.png"
-dest_files=["res://.godot/imported/Zombie_Big.png-8e9f98a0b3fb51d52684a8d0495a04f1.ctex"]
+source_file="res://texture/Sniper.png"
+dest_files=["res://.godot/imported/Sniper.png-d50eb77b78fcdf124f389eb456c617f1.ctex"]
 
 [params]
 

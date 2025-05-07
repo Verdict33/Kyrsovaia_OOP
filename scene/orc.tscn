@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://clmod1qnaayne"]
+
+[ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_yqaon"]
+[ext_resource type="Script" uid="uid://cpbs1b0h4tcl8" path="res://scripts/enemy.gd" id="2_abioc"]
+[ext_resource type="Texture2D" uid="uid://crhnwlfipbotj" path="res://texture/Orc.png" id="3_yqaon"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7koy"]
+atlas = ExtResource("3_yqaon")
+region = Rect2(16, 0, 32, 32)
+
+[node name="Enemy" instance=ExtResource("1_yqaon")]
+script = ExtResource("2_abioc")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_b7koy")
+flip_h = true

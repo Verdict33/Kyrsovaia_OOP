@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c48um5lhsxiul"
-path="res://.godot/imported/Берсерк.png-4bfc33c3bbf12756701c052a41d9e5df.ctex"
+uid="uid://dmge84pk41gf5"
+path="res://.godot/imported/Field.png-3634af6a64740d72373265d4cdd634d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Берсерк.png"
-dest_files=["res://.godot/imported/Берсерк.png-4bfc33c3bbf12756701c052a41d9e5df.ctex"]
+source_file="res://texture/Field.png"
+dest_files=["res://.godot/imported/Field.png-3634af6a64740d72373265d4cdd634d7.ctex"]
 
 [params]
 

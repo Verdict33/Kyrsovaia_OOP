@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct1vmbaj2h8ev"
-path="res://.godot/imported/Арбалетчик.png-8bba338a5a0a4d03c816f17a188547d6.ctex"
+uid="uid://b8cmlbfnedkgt"
+path="res://.godot/imported/Zombie.png-ceaed235ef1bcb2b17f09868fd8820dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Арбалетчик.png"
-dest_files=["res://.godot/imported/Арбалетчик.png-8bba338a5a0a4d03c816f17a188547d6.ctex"]
+source_file="res://texture/Zombie.png"
+dest_files=["res://.godot/imported/Zombie.png-ceaed235ef1bcb2b17f09868fd8820dd.ctex"]
 
 [params]
 

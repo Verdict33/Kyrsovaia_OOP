@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btn0fa6enj46h"
-path="res://.godot/imported/Лучник.png-f0d80f829c5fc26b3274911fe6a1ef3b.ctex"
+uid="uid://dqqd1hihwf4rm"
+path="res://.godot/imported/Necromancer.png-24b81de7687a624bdc258b5c0b0be058.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Лучник.png"
-dest_files=["res://.godot/imported/Лучник.png-f0d80f829c5fc26b3274911fe6a1ef3b.ctex"]
+source_file="res://texture/Necromancer.png"
+dest_files=["res://.godot/imported/Necromancer.png-24b81de7687a624bdc258b5c0b0be058.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5eox7g0e8qb1"
-path="res://.godot/imported/Ассасин.png-04a3f4a394d287068bb002125c47f754.ctex"
+uid="uid://c48um5lhsxiul"
+path="res://.godot/imported/Berserk.png-8d83b054a7e774e84e0b37f1aaefb7ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/Ассасин.png"
-dest_files=["res://.godot/imported/Ассасин.png-04a3f4a394d287068bb002125c47f754.ctex"]
+source_file="res://texture/Berserk.png"
+dest_files=["res://.godot/imported/Berserk.png-8d83b054a7e774e84e0b37f1aaefb7ef.ctex"]
 
 [params]
 

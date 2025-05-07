@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0imdr66kdrpl"]
+
+[ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_5hrfq"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="2_7v2xl"]
+[ext_resource type="Texture2D" uid="uid://b5xqa1kufwme8" path="res://texture/Hiller.png" id="3_5hrfq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("3_5hrfq")
+region = Rect2(25.39, 26.795, 16.055, 21.865)
+
+[node name="Player" instance=ExtResource("1_5hrfq")]
+position = Vector2(8, 8)
+script = ExtResource("2_7v2xl")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.685, 0.685)
+texture = SubResource("AtlasTexture_ct4mp")
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="1"]
+target_position = Vector2(0, 0)
+collide_with_areas = true

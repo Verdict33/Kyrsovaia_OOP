@@ -1,19 +1,34 @@
 extends Node2D
 
-@onready var units_container = get_node("/root/world/Units")
-@onready var tile_map = get_node("/root/world/TileMap")
+@onready var selected_unit: Unit = null # Выбранный игроком юнит
 
-var selected_unit: Unit = null
-var player_units: Array[Unit] = []
-enum TurnState { PLAYER_TURN, ENEMY_TURN }
-var turn_state = TurnState.PLAYER_TURN
+@onready var player_units: Array[Unit] = [] # Все юнит игрока
 
-const HIGHLIGHT_LAYER = 1  # Слой для подсветки
-const HIGHLIGHT_TILE_ID = 1  # ID тайла подсветки
+@onready var turn_state = TurnState.PLAYER_TURN # Отслеживание хода, игрок или враг
 
+var units_container: Node = null # Хранятся все юниты поля
 
+var tile_map: TileMap = null # TileMap (рассчитывается движение и позиции)
+
+enum TurnState { PLAYER_TURN, ENEMY_TURN } # Перечисление состояний хода
+
+const HIGHLIGHT_LAYER = 1 # слой подсветки
+
+# Функция готода для начала игры
 func _ready():
-	# Собираем всех юнитов игрока
+	call_deferred("start_game")
+
+
+func start_game():
+	# Пока узлы Units и TileMap не существуют в дереве сцены — ждём. 
+	while not get_node_or_null("/root/world/Units") or not get_node_or_null("/root/world/TileMap"):
+		await get_tree().process_frame  # ждём один кадр перед следующей проверкой
+
+	# Когда нужные узлы появились — сохраняем ссылки на них
+	units_container = get_node("/root/world/Units")
+	tile_map = get_node("/root/world/TileMap")
+
+	# Добавляем в список player_units только объекты типа Unit из узла Units
 	for child in units_container.get_children():
 		if child is Unit:
 			player_units.append(child)
@@ -30,7 +45,7 @@ func _unhandled_input(event):
 		if clicked_unit and not clicked_unit.has_moved:
 			selected_unit = clicked_unit
 			print("Выбран юнит:", selected_unit.name)
-			show_movement_range(selected_unit)  # <--- ЭТО ДОБАВИТЬ
+			show_movement_range(selected_unit)
 			return
 
 
@@ -166,3 +181,27 @@ func wait_until_enemies_done():
 
 func remove_unit(unit: Unit) -> void:
 	player_units.erase(unit)
+
+@onready var layer_end = get_node("/root/world/layer_end")
+
+func check_game_over():
+	var player_alive = player_units.any(func(u): return is_instance_valid(u) and u.health > 0)
+	var enemy_alive = get_node("/root/world/Enemys").get_children().any(func(u): return u is Unit and is_instance_valid(u) and u.health > 0)
+
+	if not player_alive or not enemy_alive:
+		show_game_over_message(player_alive)
+
+func show_game_over_message(player_won: bool):
+	var layer = get_node("/root/world/layer_end")
+	
+	var label = layer.get_node("GameOverLabel")
+	
+	label.text = "Игра окончена"
+	label.global_position = tile_map.map_to_local(Vector2i(1, 3))
+	label.visible = true
+	
+	set_process_input(false)
+	
+	await get_tree().create_timer(2.0).timeout
+	
+	get_tree().quit()
