@@ -1,10 +1,9 @@
+class_name Unit_enemy
 extends Unit
 
 var nearest_unit = null # Ближайший юнита игрока
 
 var min_distance = INF # Дистанция до ближайшего юнита игрока
-
-var movement_points = 2 # Дальность хода врага
 
 signal movement_finished # Сигнал для завершения хода вражеского юнита
 
@@ -88,7 +87,7 @@ func make_turn() -> void:
 	
 		# Ограничивает путь числом шагов юнита
 		if not path.is_empty():
-			var move_range = min(path.size(), movement_points)
+			var move_range = min(path.size(), max_move_cells)
 			current_id_path = path.slice(0, move_range)
 	
 			if not current_id_path.is_empty():

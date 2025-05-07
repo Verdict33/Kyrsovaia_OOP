@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dchevkgiwru5m"]
 
 [ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_17dsq"]
-[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="2_2xypr"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/berserk.gd" id="2_2xypr"]
 [ext_resource type="Texture2D" uid="uid://btn0fa6enj46h" path="res://texture/Archer.png" id="3_17dsq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]

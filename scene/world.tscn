@@ -1,22 +1,35 @@
-[gd_scene load_steps=20 format=3 uid="uid://elpoudo6sar2"]
+[gd_scene load_steps=33 format=3 uid="uid://elpoudo6sar2"]
 
 [ext_resource type="Texture2D" uid="uid://dmge84pk41gf5" path="res://texture/Field.png" id="1_0tg4p"]
 [ext_resource type="PackedScene" uid="uid://dnk6v6lauhqk4" path="res://scene/berserk.tscn" id="1_w4qq1"]
 [ext_resource type="PackedScene" uid="uid://drs3e1dx2dmxl" path="res://scene/skeleton1.tscn" id="3_hnm4a"]
 [ext_resource type="PackedScene" uid="uid://bqnt2ur1bmoml" path="res://scene/zombie.tscn" id="3_w4qq1"]
+[ext_resource type="Script" uid="uid://cqx8sa35xowww" path="res://scripts/skeleton1.gd" id="4_fb6u6"]
 [ext_resource type="Script" uid="uid://dij5iwcjikvfs" path="res://scripts/game_manager.gd" id="4_m5mgf"]
 [ext_resource type="PackedScene" uid="uid://sjhd5oihfw6j" path="res://scene/sniper.tscn" id="5_0tg4p"]
 [ext_resource type="PackedScene" uid="uid://wo43p675wkkx" path="res://scene/dark_knight.tscn" id="5_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://cpyeto8qsmerk" path="res://scene/trap.tscn" id="5_emkrx"]
 [ext_resource type="PackedScene" uid="uid://clmod1qnaayne" path="res://scene/orc.tscn" id="6_1402k"]
+[ext_resource type="Script" uid="uid://kp3vi5gb7wrn" path="res://scripts/zombie.gd" id="6_spjrp"]
 [ext_resource type="PackedScene" uid="uid://cnlj0scssnvsr" path="res://scene/archmage.tscn" id="6_y3jn2"]
+[ext_resource type="Script" uid="uid://dd11xgacciphg" path="res://scripts/orc.gd" id="7_n02kn"]
 [ext_resource type="PackedScene" uid="uid://2y03hgi1bm71" path="res://scene/skeleton2.tscn" id="7_ol7uo"]
 [ext_resource type="PackedScene" uid="uid://b0imdr66kdrpl" path="res://scene/hiller.tscn" id="7_yur6x"]
+[ext_resource type="Script" uid="uid://dxv0bepej77xr" path="res://scripts/dark_knight.gd" id="8_13g4d"]
 [ext_resource type="PackedScene" uid="uid://dchevkgiwru5m" path="res://scene/archer.tscn" id="8_na5tu"]
 [ext_resource type="PackedScene" uid="uid://dfo08ge4kcltr" path="res://scene/assasin.tscn" id="9_jsnws"]
+[ext_resource type="Script" uid="uid://b8oley62okn3d" path="res://scripts/sniper.gd" id="10_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://b8m2m5c70kn0a" path="res://scene/crossbowman.tscn" id="10_f345f"]
+[ext_resource type="Script" uid="uid://vqgky677sw32" path="res://scripts/archmage.gd" id="12_qfj6m"]
+[ext_resource type="Script" uid="uid://c26srqr8nesgq" path="res://scripts/skeleton2.gd" id="12_tl5qk"]
+[ext_resource type="Script" uid="uid://guey7vxs6wlw" path="res://scripts/hiller.gd" id="14_n02kn"]
 [ext_resource type="PackedScene" uid="uid://be77x12uytew8" path="res://scene/necromancer.tscn" id="15_a7xoa"]
+[ext_resource type="Script" uid="uid://scantjooxftr" path="res://scripts/archer.gd" id="16_puhxk"]
 [ext_resource type="PackedScene" uid="uid://dwvatjnhyejgb" path="res://scene/tank.tscn" id="16_vme25"]
+[ext_resource type="Script" uid="uid://bl7jbtkl344vm" path="res://scripts/assasin.gd" id="18_x11oh"]
+[ext_resource type="Script" uid="uid://cfj7muvu5rj5g" path="res://scripts/crossbowman.gd" id="20_7h02s"]
+[ext_resource type="Script" uid="uid://bs1gjokr0j5oq" path="res://scripts/necromancer.gd" id="22_fb6u6"]
+[ext_resource type="Script" uid="uid://bp4rpn8mcymap" path="res://scripts/tank.gd" id="24_spjrp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hcb8y"]
 texture = ExtResource("1_0tg4p")
@@ -963,18 +976,23 @@ zoom = Vector2(0.475, 0.475)
 
 [node name="Skeleton1" parent="Enemys" instance=ExtResource("3_hnm4a")]
 position = Vector2(216, 104)
+script = ExtResource("4_fb6u6")
 
 [node name="Zombie" parent="Enemys" instance=ExtResource("3_w4qq1")]
 position = Vector2(216, 72)
+script = ExtResource("6_spjrp")
 
 [node name="Dark_knight" parent="Enemys" instance=ExtResource("5_e4vd1")]
 position = Vector2(248, 72)
+script = ExtResource("8_13g4d")
 
 [node name="Orc" parent="Enemys" instance=ExtResource("6_1402k")]
 position = Vector2(248, 104)
+script = ExtResource("7_n02kn")
 
 [node name="Skeleton2" parent="Enemys" instance=ExtResource("7_ol7uo")]
 position = Vector2(184, 56)
+script = ExtResource("12_tl5qk")
 
 [node name="Units" type="Node2D" parent="."]
 
@@ -983,27 +1001,35 @@ position = Vector2(216, 56)
 
 [node name="Sniper" parent="Units" instance=ExtResource("5_0tg4p")]
 position = Vector2(216, 121)
+script = ExtResource("10_e4vd1")
 
 [node name="Archmage" parent="Units" instance=ExtResource("6_y3jn2")]
 position = Vector2(200, 56)
+script = ExtResource("12_qfj6m")
 
 [node name="Hiller" parent="Units" instance=ExtResource("7_yur6x")]
 position = Vector2(40, 56)
+script = ExtResource("14_n02kn")
 
 [node name="Archer" parent="Units" instance=ExtResource("8_na5tu")]
 position = Vector2(264, 104)
+script = ExtResource("16_puhxk")
 
 [node name="Assasin" parent="Units" instance=ExtResource("9_jsnws")]
 position = Vector2(200, 88)
+script = ExtResource("18_x11oh")
 
 [node name="Crossbowman" parent="Units" instance=ExtResource("10_f345f")]
 position = Vector2(72, 104)
+script = ExtResource("20_7h02s")
 
 [node name="Necromancer" parent="Units" instance=ExtResource("15_a7xoa")]
 position = Vector2(8, 104)
+script = ExtResource("22_fb6u6")
 
 [node name="Tank" parent="Units" instance=ExtResource("16_vme25")]
 position = Vector2(24, 8)
+script = ExtResource("24_spjrp")
 
 [node name="Traps" type="Node2D" parent="."]
 

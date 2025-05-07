@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnlj0scssnvsr"]
 
 [ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_vvbve"]
-[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="2_5plcx"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/berserk.gd" id="2_5plcx"]
 [ext_resource type="Texture2D" uid="uid://b5wbqotssibrx" path="res://texture/Archmage.png" id="3_vvbve"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
