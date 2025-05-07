@@ -1,1 +1,2 @@
-/.godot/
+syntax: glob
+*.godot
