@@ -31,9 +31,6 @@ func _ready() -> void:
 				astar_grid.set_point_solid(tile_position)
 
 
-func _input(event) -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	pass
 
@@ -106,6 +103,7 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
 		die()
+		GameManager.check_game_over()
 
 func die():
 	if is_inside_tree():

@@ -6,13 +6,14 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
 atlas = ExtResource("3_qtxvi")
-region = Rect2(16, 16, 32, 32)
+region = Rect2(18.835, 16, 20.91, 32)
 
 [node name="Player" instance=ExtResource("1_qtxvi")]
 position = Vector2(8, 8)
 script = ExtResource("2_fyoml")
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1, 0)
 texture = SubResource("AtlasTexture_ct4mp")
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="1"]

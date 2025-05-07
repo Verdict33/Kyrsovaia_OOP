@@ -6,14 +6,13 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
 atlas = ExtResource("3_c4uj7")
-region = Rect2(16, 16, 32, 32)
+region = Rect2(23.975, 27, 17.91, 21.825)
 
 [node name="Player" instance=ExtResource("1_c4uj7")]
 position = Vector2(8, 8)
 script = ExtResource("2_d87ek")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -3)
 scale = Vector2(0.685, 0.685)
 texture = SubResource("AtlasTexture_ct4mp")
 

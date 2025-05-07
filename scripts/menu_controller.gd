@@ -1,18 +1,7 @@
 extends Control
-# Please check the documentation about
-# Displayserver class : https://docs.godotengine.org/en/stable/classes/class_displayserver.html
 
-#--
-# Check out Colorblind addon for godot : https://github.com/paulloz/godot-colorblindness
-#--
-
-# Config file
-# Move it into a singleton
 var settings_file = ConfigFile.new()
-#--
 var vsync: int = 0
-# I'm a Vector3 instead of 3 var float
-# - x : General , y : Music , z : SFX
 var audio: Vector3 = Vector3(70.0, 70.0, 70.0)
 var display_resolution : Vector2i = DisplayServer.screen_get_size()
 
