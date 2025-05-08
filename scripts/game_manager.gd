@@ -12,8 +12,6 @@ var tile_map: TileMap = null # TileMap (рассчитывается движе�
 
 enum TurnState { PLAYER_TURN, ENEMY_TURN } # Перечисление состояний хода
 
-const HIGHLIGHT_LAYER = 1 # слой подсветки
-
 # Функция готода для начала игры
 func _ready():
 	call_deferred("start_game")
@@ -27,6 +25,7 @@ func start_game():
 	# Когда нужные узлы появились — сохраняем ссылки на них
 	units_container = get_node("/root/world/Units")
 	tile_map = get_node("/root/world/TileMap")
+	Highligt.setup(tile_map)
 
 	# Добавляем в список player_units только объекты типа Unit из узла Units
 	for child in units_container.get_children():
@@ -40,12 +39,15 @@ func _unhandled_input(event):
 	
 	if event is InputEventMouseButton and event.pressed:
 		var mouse_pos = get_global_mouse_position()
-
+		
 		var clicked_unit = get_unit_at_position(mouse_pos)
+		
 		if clicked_unit and not clicked_unit.has_moved:
+			Highligt.clear_attack_highlight()
 			selected_unit = clicked_unit
 			print("Выбран юнит:", selected_unit.name)
-			show_movement_range(selected_unit)
+			Highligt.show_movement_range(selected_unit.get_reachable_cells())
+			Highligt.show_attack_targets(selected_unit, get_node("/root/world/Enemys").get_children())
 			return
 
 
@@ -61,7 +63,6 @@ func _unhandled_input(event):
 				if enemy_cell == tile and selected_unit.can_attack(enemy):
 					selected_unit.attack(enemy)
 					selected_unit.has_moved = true
-					clear_highlight()
 					selected_unit = null
 					if all_units_moved():
 						end_player_turn()
@@ -116,14 +117,13 @@ func get_occupied_cells(exclude: Unit) -> Array[Vector2i]:
 
 
 func end_player_turn():
-	clear_highlight()
-	
 	# Проверяем ловушки для каждого юнита игрока
 	for unit in player_units:
 		if unit is Unit and is_instance_valid(unit):
 			unit.check_for_traps()
 
 	selected_unit = null # Снимаем выделение
+	Highligt.clear_highlight()
 	turn_state = TurnState.ENEMY_TURN
 	print("Ход врага")
 
@@ -154,19 +154,6 @@ func all_units_moved() -> bool:
 		if not unit.has_moved:
 			return false
 	return true
-
-func show_movement_range(unit: Unit) -> void:
-	clear_highlight()
-	var reachable = unit.get_reachable_cells()
-
-	var tile_set_id = 0
-	var atlas_coords = Vector2i(2, 23)
-
-	for cell in reachable:
-		tile_map.set_cell(HIGHLIGHT_LAYER, cell, tile_set_id, atlas_coords)
-
-func clear_highlight() -> void:
-	tile_map.clear_layer(HIGHLIGHT_LAYER)
 
 func wait_until_enemies_done():
 	while true:

@@ -2,6 +2,7 @@ class_name Unit
 extends Node2D
 
 @onready var tile_map = get_node("/root/world/TileMap")
+@onready var game_manager = get_node("/root/world/GameManager")
 
 var astar_grid: AStarGrid2D
 var current_id_path: Array[Vector2i]
@@ -40,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	# Юнит уже сходил — не двигается
 	if has_moved:
 		return
-
+	
 	var next_cell = current_id_path.front()
 	var current_cell = tile_map.local_to_map(global_position)
 	var direction = next_cell - current_cell
@@ -66,8 +67,11 @@ func _physics_process(delta: float) -> void:
 		if current_id_path.is_empty():
 			is_moving = false
 			has_moved = true  # Отметить, что юнит сходил
-			
-			GameManager.clear_highlight()
+			if game_manager.selected_unit == self:
+				Highligt.clear_attack_highlight()
+				Highligt.show_attack_targets(self, get_node("/root/world/Enemys").get_children())
+				
+			Highligt.clear_highlight()
 			
 			# Проверка на завершение хода игрока
 			if GameManager.all_units_moved():
@@ -82,10 +86,10 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 func try_move_to(target_cell: Vector2i) -> void:
 	if has_moved:
 		return
-
+		
 	var start_cell = tile_map.local_to_map(global_position)
 	var occupied = GameManager.get_occupied_cells(self)
-
+	
 	# Отмечаем занятые клетки как непроходимые
 	for cell in occupied:
 		if astar_grid.is_in_boundsv(cell):
