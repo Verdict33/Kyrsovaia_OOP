@@ -2,7 +2,8 @@ extends Unit
 
 func _ready() -> void:
 	super._ready()
-	max_move_cells = 10
+	max_move_cells = 7
 	health = 100
-	attack_power = 5
+	max_health = 100
+	attack_power = 50
 	attack_dist = 1

@@ -140,6 +140,7 @@ func get_reachable_cells() -> Array[Vector2i]:
 	
 	return reachable
 
+var max_health = 10
 var health = 10
 var attack_power = 3
 var attack_dist = 1
