@@ -56,33 +56,113 @@ layout_mode = 2
 size_flags_vertical = 4
 text = "Выйти из игры"
 
-[node name="ExtraMenu" type="PopupMenu" parent="CanvasLayer/MainMenu"]
+[node name="Extra_popup" type="PopupPanel" parent="CanvasLayer/MainMenu"]
+size = Vector2i(1000, 1000)
 
-[node name="HowToPlayPopup" type="Popup" parent="CanvasLayer/MainMenu"]
-size = Vector2i(532, 200)
+[node name="Extra_label" type="RichTextLabel" parent="CanvasLayer/MainMenu/Extra_popup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 996.0
+offset_bottom = 996.0
+theme_override_font_sizes/bold_italics_font_size = 5
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 5
+theme_override_font_sizes/normal_font_size = 5
+theme_override_font_sizes/bold_font_size = 5
+text = "Правил нет, бей все что движется, а что не движется, двигай и бей
 
-[node name="HowToPlayLabel" type="Label" parent="CanvasLayer/MainMenu/HowToPlayPopup"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-text = "Используйте стрелки для перемещения и пробел для действия."
+Игра разработана для геймеров хардкорщиков, именно поэтому управление реализовано крайне криво, не всегда пропадает сетка передвижения, также для увеличения сложности в самой игре отсутствуют какие либо индикаторы здоровья и урона (их нужно запомнить в инструкции) в дополнение к этому сами юниты никак не меняются после хода, так что придется так же запомнить кто уже совершил ход (или тыкать всех подряд). Удачной игры!...
 
-[node name="AboutPopup" type="Popup" parent="CanvasLayer/MainMenu"]
-size = Vector2i(490, 200)
+ХАРДКОР!
 
-[node name="AboutLabel" type="Label" parent="CanvasLayer/MainMenu/AboutPopup"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-text = "Разработано с любовью в Godot 4.0\\nАвтор: Твой Никнейм"
+Характеристика Юнитов:
+					ЮНИТЫ
+Танк
+Здоровье 150
+Урон 25
+Дальность атаки 1
+Дальность передвижения 3
+
+Берсерк
+Здоровье 75
+Урон 75
+Дальность атаки 1
+Дальность передвижения 5
+
+Ассасин
+Здоровье 100
+Урон 50
+Дальность атаки 1
+Дальность передвижения 7
+
+Лучник
+Здоровье 100
+Урон 50
+Дальность атаки 3
+Дальность передвижения 5
+
+Арбалетчик
+Здоровье 125
+Урон 75
+Дальность атаки 5
+Дальность передвижения 3
+
+Снайпер
+Здоровье 100
+Урон 100
+Дальность атаки 7
+Дальность передвижения 3
+
+Жрец
+Здоровье 100
+Урон 25 
+Дальность атаки 3
+Дальность передвижения 5
+
+
+Архимаг
+Здоровье 125
+Урон 150
+Дальность атаки 2
+Дальность передвижения 2
+
+Некромант
+Здоровье 100
+Урон 50
+Дальность атаки 3
+Дальность передвижения 5
+
+					ВРАГИ
+Скелет большой
+Здоровье 150
+Урон 50
+Дальность атаки 1
+Дальность передвижения 5
+
+Скелет малый
+Здоровье 100
+Урон 50
+Дальность атаки 1
+Дальность передвижения 5
+
+Зомби
+Здоровье 150
+Урон 75
+Дальность атаки 4	
+Дальность передвижения 3
+
+Орк
+Здоровье 125
+Урон 75
+Дальность атаки 3 
+Дальность передвижения 5
+
+Темный рыцарь
+Здоровье 300
+Урон 100
+Дальность атаки 1
+Дальность передвижения 5  
+"
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainContainer/Start_button" to="CanvasLayer/MainMenu" method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MainContainer/Exit_button" to="CanvasLayer/MainMenu" method="_on_exit_button_pressed"]
