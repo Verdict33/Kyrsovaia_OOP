@@ -47,7 +47,6 @@ func _unhandled_input(event):
 		if clicked_unit and not clicked_unit.has_moved:
 			Highligt.clear_attack_highlight()
 			selected_unit = clicked_unit
-			print("Выбран юнит:", selected_unit.name)
 			Highligt.show_movement_range(selected_unit.get_reachable_cells())
 			Highligt.show_attack_targets(selected_unit, get_node("/root/world/Enemys").get_children())
 			return

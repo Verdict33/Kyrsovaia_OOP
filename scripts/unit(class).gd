@@ -14,7 +14,7 @@ var max_move_cells: int = 5  # Дильность передвижения юн�
 
 
 # Создание игрового поля
-func _ready() -> void:
+func _ready():
 	astar_grid = AStarGrid2D.new()
 	
 	# Регион, в котором работает A*
@@ -48,7 +48,7 @@ func _ready() -> void:
 
 
 # Функцция годота для вызова передвижения
-func _physics_process(delta: float) -> void:
+func _physics_process(delta):
 	if current_id_path.is_empty():
 		return
 	
@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 
 
 # Выстраивает путь для юнита
-func try_move_to(target_cell: Vector2i) -> void:
+func try_move_to(target_cell: Vector2i):
 	if has_moved:
 		return
 	
@@ -138,7 +138,7 @@ func try_move_to(target_cell: Vector2i) -> void:
 
 
 # Функция для определения клеток, в которые можно идти (нужна для подсветки хода)
-func get_reachable_cells() -> Array[Vector2i]:
+func get_reachable_cells():
 	var start_cell = tile_map.local_to_map(global_position)
 	
 	var reachable: Array[Vector2i] = []
@@ -180,7 +180,7 @@ var attack_dist = 1
 
 
 # Получение урона
-func take_damage(damage: int) -> void:
+func take_damage(damage: int):
 	health -= damage
 	if health <= 0:
 		die()
@@ -195,13 +195,13 @@ func die():
 
 
 # Нанесение урона
-func attack(target: Unit) -> void:
+func attack(target: Unit):
 	if target:
 		target.take_damage(attack_power)
 
 
 # Проверка на возможность атаковать
-func can_attack(target: Unit) -> bool:
+func can_attack(target: Unit):
 	var self_cell = tile_map.local_to_map(global_position)
 	var target_cell = tile_map.local_to_map(target.global_position)
 	return self_cell.distance_to(target_cell) <= attack_dist 

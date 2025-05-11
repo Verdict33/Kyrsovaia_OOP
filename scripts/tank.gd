@@ -1,6 +1,6 @@
 extends Unit
 
-func _ready() -> void:
+func _ready():
 	super._ready()
 	max_move_cells = 3
 	health = 150

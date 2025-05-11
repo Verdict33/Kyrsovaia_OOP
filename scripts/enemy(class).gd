@@ -7,6 +7,7 @@ var min_distance = INF # Дистанция до ближайшего юнита
 
 signal movement_finished # Сигнал для завершения хода вражеского юнита
 
+
 # Функцция годота для вызова передвижения
 func _physics_process(delta):
 	if is_moving:
@@ -14,6 +15,7 @@ func _physics_process(delta):
 		check_for_traps()
 		if not is_instance_valid(self):
 			return
+
 
 # Поиск момента и корректного применения передвижения для GameManager
 func make_turn():
