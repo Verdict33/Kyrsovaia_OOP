@@ -12,27 +12,29 @@ var tile_map: TileMap = null # TileMap (рассчитывается движе�
 
 enum TurnState { PLAYER_TURN, ENEMY_TURN } # Перечисление состояний хода
 
+
 # Функция готода для начала игры
 func _ready():
 	call_deferred("start_game")
 
 
 func start_game():
-	# Пока узлы Units и TileMap не существуют в дереве сцены — ждём. 
+	# Ждем пока узлы Units и TileMap не существуют в дереве сцены
 	while not get_node_or_null("/root/world/Units") or not get_node_or_null("/root/world/TileMap"):
-		await get_tree().process_frame  # ждём один кадр перед следующей проверкой
-
-	# Когда нужные узлы появились — сохраняем ссылки на них
+		await get_tree().process_frame  # один кадр перед следующей проверкой
+	
+	# Сохраняем ссылки на нужные узлы
 	units_container = get_node("/root/world/Units")
 	tile_map = get_node("/root/world/TileMap")
 	Highligt.setup(tile_map)
-
+	
 	# Добавляем в список player_units только объекты типа Unit из узла Units
 	for child in units_container.get_children():
 		if child is Unit:
 			player_units.append(child)
 
 
+# Ввод мыши игрока во время хода игрока
 func _unhandled_input(event):
 	if turn_state != TurnState.PLAYER_TURN:
 		return
@@ -49,13 +51,12 @@ func _unhandled_input(event):
 			Highligt.show_movement_range(selected_unit.get_reachable_cells())
 			Highligt.show_attack_targets(selected_unit, get_node("/root/world/Enemys").get_children())
 			return
-
-
-		# Если юнит выбран — попытка переместить его
+		
+		# Если юнит выбран, попытка переместить его
 		if selected_unit:
 			var tile = tile_map.local_to_map(mouse_pos)
 			
-			# Проверка — есть ли враг в этой клетке
+			# Есть ли враг в этой клетке
 			var enemy_units = get_node("/root/world/Enemys").get_children()
 			for enemy in enemy_units:
 				var enemy_cell = tile_map.local_to_map(enemy.global_position)
@@ -67,73 +68,83 @@ func _unhandled_input(event):
 					if all_units_moved():
 						end_player_turn()
 					return
-
-			# Если врага нет — попробовать двигаться
+			
+			# Двигаемся, если врага нет
 			selected_unit.try_move_to(tile)
 
 
-
-func get_unit_at_position(pos: Vector2) -> Unit:
+# Возвращает юнита игрока, находящегося под указанной позицией мыши
+func get_unit_at_position(pos: Vector2):
 	for unit in player_units:
 		if not is_instance_valid(unit):
-			continue  # Юнит уже удалён — пропускаем
-
+			continue
+		
+		# Получаем спрайт юнита
 		var sprite = unit.get_node("Sprite2D")
 		if sprite:
+			# Вычисляем прямоугольник спрайта юнита в мировых координатах
 			var rect = Rect2(
 				unit.global_position - sprite.texture.get_size() * 0.5 * unit.scale,
 				sprite.texture.get_size() * unit.scale
 			)
+			
+			# Если позиция мыши попадает в прямоугольник, то возвращаем юнита
 			if rect.has_point(pos):
 				return unit
+	
 	return null
 
 
-
-func select_unit(unit: Unit) -> void:
-	if unit.is_moving:
-		return
-	selected_unit = unit
-
-func get_occupied_cells(exclude: Unit) -> Array[Vector2i]:
-	player_units = player_units.filter(func(u): return is_instance_valid(u))
-
+# Возвращает массив занятых клеток на карте, исключает клетку указанного юнита
+func get_occupied_cells(exclude: Unit):
+	# Очищаем список от удалённых юнитов
+	player_units = player_units.filter(func(unit): return is_instance_valid(unit))
+	
+	# Пустой массив для хранения занятых клеток
 	var occupied: Array[Vector2i] = []
-
-	# Проверка своих юнитов
+	
+	# Проверка занятых клеток союзниками
 	for unit in player_units:
+		# Исключаем переданного юнита и проверка, что юнит ещё существует
 		if unit != exclude and is_instance_valid(unit):
+			# Получаем клетку с юнитом
 			var cell = tile_map.local_to_map(unit.global_position)
 			occupied.append(cell)
 
-	# Проверка вражеских юнитов
+	# Те же действия для вражеских юнитов
 	var enemy_units = get_node("/root/world/Enemys").get_children()
 	for enemy in enemy_units:
 		if enemy != exclude and is_instance_valid(enemy):
 			var cell = tile_map.local_to_map(enemy.global_position)
 			occupied.append(cell)
-
+	
+	# Список всех занятых клеток
 	return occupied
 
 
+# Завершает ход игрока и начинает ход врага
 func end_player_turn():
-	# Проверяем ловушки для каждого юнита игрока
+	# Проверка ловушек для каждого юнита игрока
 	for unit in player_units:
 		if unit is Unit and is_instance_valid(unit):
 			unit.check_for_traps()
-
-	selected_unit = null # Снимаем выделение
+	
+	# Снимаем выделение с активного юнита
+	selected_unit = null
+	
+	# Очищаем подсветку движения
 	Highligt.clear_highlight()
+	
 	turn_state = TurnState.ENEMY_TURN
-	print("Ход врага")
-
 	process_enemy_turn()
 
 
-
+# Обрабатывает ход врагов
 func process_enemy_turn():
+	# Пауза перед началом хода врагов
 	await get_tree().create_timer(0.5).timeout
-
+	
+	# Получаем всех вражеских юнитов
 	var enemy_units = get_node("/root/world/Enemys").get_children()
 	for enemy in enemy_units:
 		if enemy is Unit and is_instance_valid(enemy):
@@ -141,43 +152,38 @@ func process_enemy_turn():
 		else:
 			pass
 	
+	# После завершения хода всех врагов сбрасываем флаг `has_moved` у всех юнитов
 	var all_units = player_units + get_node("/root/world/Enemys").get_children()
 	for unit in all_units:
 		if is_instance_valid(unit) and unit is Unit:
 			unit.has_moved = false
 	
 	turn_state = TurnState.PLAYER_TURN
-	print("Ход игрока")
 
-func all_units_moved() -> bool:
+
+# Проверяет все ли юниты сходили
+func all_units_moved():
 	for unit in player_units:
 		if not unit.has_moved:
 			return false
 	return true
 
-func wait_until_enemies_done():
-	while true:
-		var enemies_moving = false
-		for enemy in get_node("/root/world/Enemys").get_children():
-			if enemy is Unit and enemy.is_moving:
-				enemies_moving = true
-				break
-		if not enemies_moving:
-			break
-		await get_tree().process_frame
 
-func remove_unit(unit: Unit) -> void:
+# Удаляет юнита
+func remove_unit(unit: Unit):
 	player_units.erase(unit)
 
-@onready var layer_end = get_node("/root/world/layer_end")
 
+# Проверяет есть ли полностью уничтоженная команда
 func check_game_over():
-	var player_alive = player_units.any(func(u): return is_instance_valid(u) and u.health > 0)
-	var enemy_alive = get_node("/root/world/Enemys").get_children().any(func(u): return u is Unit and is_instance_valid(u) and u.health > 0)
-
+	var player_alive = player_units.any(func(unit): return is_instance_valid(unit) and unit.health > 0)
+	var enemy_alive = get_node("/root/world/Enemys").get_children().any(func(unit): return unit is Unit and is_instance_valid(unit) and unit.health > 0)
+	
 	if not player_alive or not enemy_alive:
 		show_game_over_message(player_alive)
 
+
+# Выводит сообщение о конце игры
 func show_game_over_message(player_won: bool):
 	var layer = get_node("/root/world/layer_end")
 	

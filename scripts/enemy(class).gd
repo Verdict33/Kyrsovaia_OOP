@@ -7,7 +7,7 @@ var min_distance = INF # Дистанция до ближайшего юнита
 
 signal movement_finished # Сигнал для завершения хода вражеского юнита
 
-# Функцция годота для начала работы и вызова передвижения
+# Функцция годота для вызова передвижения
 func _physics_process(delta):
 	if is_moving:
 		process_movement(delta)
@@ -16,7 +16,7 @@ func _physics_process(delta):
 			return
 
 # Поиск момента и корректного применения передвижения для GameManager
-func make_turn() -> void:
+func make_turn():
 	# Если юнит уже двигается или уже походил, то завершаем работу
 	if is_moving or has_moved:
 		return
@@ -35,7 +35,7 @@ func make_turn() -> void:
 	for unit in player_units:
 		if not is_instance_valid(unit): 
 			continue
-	
+		
 		var unit_cell = tile_map.local_to_map(unit.global_position)
 		var dist = my_cell.distance_to(unit_cell)
 		if dist < min_distance:
@@ -80,25 +80,25 @@ func make_turn() -> void:
 	if not path.is_empty():
 		if path[0] == my_cell:
 			path.pop_front()  # Удаляет текущую позицию из пути
-	
-		# Не заходит на клетку с врагом
+			
+		# Не заходит на клетку с юнитом персонажа
 		if not path.is_empty() and path[-1] == target_player_cell:
 			path.pop_back()
-	
+			
 		# Ограничивает путь числом шагов юнита
 		if not path.is_empty():
 			var move_range = min(path.size(), max_move_cells)
 			current_id_path = path.slice(0, move_range)
-	
+			
 			if not current_id_path.is_empty():
 				is_moving = true
-	
+				
 				await self.movement_finished  # Ждёт завершения движения
-	
+				
 				# Если можно атаковать, то атакует
 				if is_instance_valid(nearest_unit) and can_attack(nearest_unit):
 					attack(nearest_unit)
-	
+				
 				has_moved = true
 				return
 	
@@ -115,14 +115,14 @@ func process_movement(delta: float):
 		return # Путь пуст, завершение хода
 	
 	var target_pos = tile_map.map_to_local(current_id_path[0])
-
+	
 	global_position = global_position.move_toward(target_pos, SPEED * delta)
 	
 	# Если достигнута целевая точка текущего шага
 	if global_position.is_equal_approx(target_pos):
 		global_position = target_pos # Привязка к точной позиции
 		current_id_path.pop_front() # Удаляет пройденную точку из пути
-	
+		
 		if current_id_path.is_empty():
 			is_moving = false
 			has_moved = true

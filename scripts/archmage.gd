@@ -6,4 +6,4 @@ func _ready() -> void:
 	health = 125
 	max_health = 125
 	attack_power = 150
-	attack_dist = 3
+	attack_dist = 2
