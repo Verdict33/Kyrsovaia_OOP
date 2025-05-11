@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnk6v6lauhqk4"]
 
 [ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_fvtld"]
-[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="1_hjaqi"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/berserk.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://c48um5lhsxiul" path="res://texture/Berserk.png" id="3_fvtld"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]

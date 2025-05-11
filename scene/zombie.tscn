@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqnt2ur1bmoml"]
 
 [ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_dregr"]
-[ext_resource type="Script" uid="uid://cpbs1b0h4tcl8" path="res://scripts/enemy.gd" id="2_8u16h"]
-[ext_resource type="Texture2D" uid="uid://b8cmlbfnedkgt" path="res://texture/Zombie.png" id="3_8u16h"]
+[ext_resource type="Script" uid="uid://cpbs1b0h4tcl8" path="res://scripts/enemy(class).gd" id="2_8u16h"]
+[ext_resource type="Texture2D" uid="uid://c4xusnj54dqtx" path="res://texture/Zombie.png" id="3_8u16h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7koy"]
 atlas = ExtResource("3_8u16h")

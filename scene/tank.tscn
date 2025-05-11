@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwvatjnhyejgb"]
 
 [ext_resource type="PackedScene" uid="uid://cc5llhk81savv" path="res://scene/unit(class).tscn" id="1_c1ogp"]
-[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/player.gd" id="2_pw5ae"]
+[ext_resource type="Script" uid="uid://cwp3jfdm2345r" path="res://scripts/berserk.gd" id="2_pw5ae"]
 [ext_resource type="Texture2D" uid="uid://d3oaol4owtmid" path="res://texture/Tank.png" id="3_c1ogp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
